@@ -1,0 +1,106 @@
+body {
+	margin:0;
+	font-family:'Lato', sans-serif;
+	text-align:center;
+	color: #999;
+	padding-top: 65px; 
+	padding-bottom: 65px; 
+	background-color: rgb(245, 241, 236);
+}
+
+.welcome {
+	width: 300px;
+	height: 200px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -150px;
+	margin-top: -100px;
+}
+
+a, a:visited {
+	text-decoration:none;
+}
+
+
+.myfooter {
+    background: #bbb;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    border-bottom:1px solid #666;
+    border-top:1px solid #666;
+    }
+
+.ftlabel {
+	font-size: 15px;
+	color: black;
+}
+
+html, body
+{
+    height: 100%;
+}
+
+.myli {
+	border-color: white;
+    border: groove;
+}
+
+.btn-blue {
+  color: #fff;
+  background-color: #497AE4;
+  border-color: #497AE4;
+}
+
+.well {
+	margin-bottom: 100px;
+	border-radius: 0px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	margin-right: 150px;
+    padding-left: 150px;
+}
+
+.validationMessage {
+	color: Red;
+}
+
+.input-group .validationMessage {
+    display: table-caption;
+    caption-side: bottom;
+}
+.rowClick {
+	background:orange;
+}
+
+.liActive {
+	
+	color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.highlighted {
+    color: #261F1D;
+    background-color: #E5C37E;
+}
+
+.file-input {
+	
+	position:absolute;
+	z-index:2;
+	top:0;
+	left:0;
+	filter: alpha(opacity=0);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	opacity:0;
+	background-color:transparent;
+	color:transparent;
+	
+}
+
+
+
+
+
