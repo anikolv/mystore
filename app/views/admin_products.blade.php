@@ -93,8 +93,11 @@
 						<span class='label label-info' id="upload-file-info" data-bind="text: image"></span>
 					 </div>
 				</div>
-				<div style="text-align: center;">
+				<div style="text-align: center;" id="add_product">
 					<input type="button" class="btn btn-primary" value="Add" data-bind='click: add'>
+				</div>
+				<div style="text-align: center;" id="modify_product">
+					<input type="button" class="btn btn-primary" value="Modify" data-bind='click: modify'>
 				</div>
 			</fieldset>
 		</form>
@@ -122,8 +125,8 @@
         	 $('tr', 0).removeAttr('style');
          }
          selectedIndex = $(this).closest('tr').children().eq(0).text();
-         $(this).closest('tr').css('color','red');
-         $(this).closest('tr').css('background-color','yellow');
+        // $(this).closest('tr').css('color','red');
+         $(this).closest('tr').css('background-color','blue');
          $('#remove').fadeIn();
      	 $('#modify	').fadeIn();
      });
@@ -140,6 +143,9 @@
 	$(document).ready(function() {
 		
 		$( "#add" ).click(function() {
+			$('#add_product').show();
+			$('#modify_product').hide();
+
 			$('.well').fadeIn();
 			});
 
@@ -157,8 +163,7 @@
 			});
 
 		$( "#modify" ).click(function() {
-			
-			
+
 			});
 		
 		$(".file-input").change(function() {
@@ -225,7 +230,7 @@
 		$("table").tablesorter({
 			    theme : "bootstrap",
 			    headerTemplate : '{content} {icon}',
-			    widgets : [ "uitheme", "zebra", "pager"],
+			    widgets : [ "uitheme", "zebra", "pager", "editable"],
 			    widgetOptions : {
 			      zebra : ["even", "odd"],
 			        pager_startPage: 0,
@@ -241,7 +246,7 @@
 
 		      customAjaxUrl: function(table, url) {
 		          $(table).trigger('changingUrl', url);
-		          return url;
+		          return url;	
 		      },
 
 			

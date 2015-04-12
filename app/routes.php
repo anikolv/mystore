@@ -29,5 +29,6 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('admin/products', 'ProductController@getProducts');
 	Route::post('admin/addProduct', 'ProductController@addProduct');
 	Route::post('admin/removeProduct', 'ProductController@removeProduct');
+	Route::post('admin/addUser', 'UserController@addUser');
 	
 });

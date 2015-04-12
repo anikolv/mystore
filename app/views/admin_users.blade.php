@@ -48,10 +48,46 @@
 		<img src="../assets/images/loader.gif" id="loading-indicator" />
 	</div>
 </div>
-<div class="row" style="text-align: left; padding-left: 15px;">
-	<input type="button" class="btn btn-primary" value="Add" data-bind='click: register'>
-	<input type="button" class="btn btn-primary" value="Remove" data-bind='click: register'>
-	<input type="button" class="btn btn-primary" value="Modify" data-bind='click: register'>
+<div class="row" style="text-align: left; padding-left: 15px;margin-bottom:40px;">
+	<input type="button" class="btn btn-primary" value="Add" id='add'>
+	<input type="button" class="btn btn-primary" value="Remove" id='remove'>
+	<input type="button" class="btn btn-primary" value="Modify" id='modify'>
+</div>
+
+<div class="well">
+	<div class="row" style="text-align: left; padding-left: 15px;">
+		<form enctype="multipart/form-data">
+			<fieldset>
+				<div class="form-group">
+					 <label for="name">Name</label>
+				 	<input type="text" class="form-control input" id="name" placeholder="" data-bind="value: name">
+				</div>
+				<div class="form-group">
+					 <label for="address">Address</label>
+				 	 <textarea class="form-control" rows="3" placeholder="User address..." data-bind="value: address" required></textarea>
+				</div>
+				<div class="form-group">
+					 <label for="email">Email</label>
+				 	 <input type="text" class="form-control input" id="email" placeholder="" data-bind="value: email">
+				</div>
+				<div class="form-group">
+					 <label for="address">Password</label>
+				 	<input type="password" class="form-control input" id="password" placeholder="" data-bind="value: password">
+				</div>
+				<div class="form-group">
+					 <label for="role">Role</label>
+					 <br>
+				 	<select class="form-control input" data-bind="value: role">
+				 		<option value='1'>User</option>
+				 		<option value='2'>Admin</option>
+					</select>
+				</div>
+				<div style="text-align: center;" id="add_user">
+					<input type="button" class="btn btn-primary" value="Add" data-bind='click: add'>
+				</div>
+			</fieldset>
+		</form>
+	</div>
 </div>
 @stop
 
@@ -64,6 +100,24 @@
 
 	$('#users').addClass('liActive');
 
+	$('.well').hide();
+	$('#remove').hide();
+	$('#modify	').hide();
+
+	var selectedIndex;
+
+	 $('table')
+     .on('click', 'tbody tr', function(){
+         if ( typeof selectedIndex != 'undefined' ) {
+        	 $('tr', 0).removeAttr('style');
+         }
+         selectedIndex = $(this).closest('tr').children().eq(0).text();
+        // $(this).closest('tr').css('color','red');
+         $(this).closest('tr').css('background-color','blue');
+         $('#remove').fadeIn();
+     	 $('#modify	').fadeIn();
+     });
+
 
 	$(document).ajaxStart(function() {
 		$('#loading-indicator').show();
@@ -74,6 +128,53 @@
 	});
 
 	$(document).ready(function() {
+
+		$( "#add" ).click(function() {
+			$('.well').fadeIn();
+			});
+
+		viewModel = {
+  		  		
+  				name: ko.observable()
+						.extend({required: true}),
+
+				address: ko.observable()
+						.extend({required: true}),		
+
+				email: ko.observable()
+						.extend({required: true}),
+
+				role: ko.observable()
+						.extend({required: true}),
+
+				password: ko.observable()
+						.extend({required: true}),
+
+				validateFields : function(){
+							this.errors = ko.validation.group([this.name, this.address, this.email, this.role, this.password]);
+						},
+
+				add : function() {
+						var data =  ko.mapping.toJSON(this);
+							if (this.errors().length == 0) {
+								$.ajax({
+									method: "POST",
+									url: "admin/addUser", 
+									data: data,
+									contentType: "application/json; charset=utf-8"
+								}).done(function(returnedData) {
+										location.href = 'adminUsers';
+								});
+							} else {
+								this.errors.showAllMessages();
+								this.validateFields();
+							}
+						}
+  		}
+
+		viewModel.validateFields();
+  		ko.applyBindings(viewModel);
+	
 		
 		$("table").tablesorter({
 			    theme : "bootstrap",
@@ -109,7 +210,7 @@
 		          var r, row, c, d = data.users,
 		          total = data.count,
 
-		          headers = ["No", "Created at", "Customer Name", "Customer Address", "Email", "Role"],
+		          headers = ["No", "Created at", "Name", "Address", "Email", "Role"],
 				  rows = [],
 		          len = d.length;
 		          for ( r=0; r < len; r++ ) {

@@ -125,7 +125,6 @@ class UserController extends BaseController {
 		$t = 0;
 		foreach ( $users as $user ) {
 			if (($t >= ($page * $rows_per_page) && $t < ($page * $rows_per_page + $rows_per_page))) {
-				//$user->USER_NAME="<input type='checkbox' id=" . $user->USER_ID . "/>";
 				$page_items [] = $user;
 			}
 			$t ++;
@@ -135,6 +134,20 @@ class UserController extends BaseController {
 		$this->status ['users'] = $page_items;
 		$this->status ['count'] = $count;
 		return json_encode($this->status);
+		
+	}
+	
+	public function addUser() {
+				
+		$user = new User;
+		$user->email = Input::get('email');
+		$user->name = Input::get('name');
+		$user->address = Input::get('address');
+		$user->password = Hash::make(Input::get('password'));
+		$user->active = 1;
+		$user->role = Input::get('role');
+		
+		$user->save();
 		
 	}
 	
