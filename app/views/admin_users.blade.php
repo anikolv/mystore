@@ -115,8 +115,21 @@
         // $(this).closest('tr').css('color','red');
          $(this).closest('tr').css('background-color','blue');
          $('#remove').fadeIn();
-     	 $('#modify	').fadeIn();
+     	// $('#modify	').fadeIn();
      });
+
+	 $( "#remove" ).click(function() {
+			if ( typeof selectedIndex != 'undefined' ) {
+				$.ajax({
+					method: "POST",
+					url: "admin/removeUser", 
+					data: JSON.stringify({ id: selectedIndex }),
+					contentType: "application/json; charset=utf-8"
+				}).done(function(returnedData) {
+						location.href = 'adminUsers';
+				});
+			}
+			});
 
 
 	$(document).ajaxStart(function() {
@@ -235,13 +248,6 @@
 		      cssGoto: ".pagenum"
 		    });		
 
-
-		 $('table').bind('select.tablesorter.select', function(e, ts){
-			 console.log(ts.selected);
-	         //   alert(ts.selected.length +' rows selected.');
-			 $(this).closest("tr").siblings().removeClass("highlighted");
-			 $(this).toggleClass("highlighted");
-	        });
 	});
 		  
 </script>

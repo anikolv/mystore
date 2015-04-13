@@ -30,5 +30,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::post('admin/addProduct', 'ProductController@addProduct');
 	Route::post('admin/removeProduct', 'ProductController@removeProduct');
 	Route::post('admin/addUser', 'UserController@addUser');
+	Route::post('admin/removeUser', 'UserController@removeUser');
+	Route::post('admin/getCartProducts', 'CartProductController@getCartProducts');
 	
 });

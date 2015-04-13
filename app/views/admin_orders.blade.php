@@ -47,6 +47,17 @@
 		<img src="../assets/images/loader.gif" id="loading-indicator" />
 	</div>
 </div>
+
+<div class="well">
+	<div class="row" style="text-align: left; padding-left: 15px;">
+		<div class="row">
+			Продукти:
+		</div>
+		<br>
+		<div class="row" id="cart_products">
+		</div>
+	</div>
+</div>
 @stop
 
 @section('scripts')
@@ -58,6 +69,8 @@
 
 	$('#orders').addClass('liActive');
 
+	$('.well').hide();
+
 
 	$(document).ajaxStart(function() {
 		$('#loading-indicator').show();
@@ -68,6 +81,35 @@
 	});
 
 	$(document).ready(function() {
+
+
+		var selectedIndex;
+		
+		$('table')
+	     .on('click', 'tbody tr', function(){
+	         if ( typeof selectedIndex != 'undefined' ) {
+	        	 $('tr', 0).removeAttr('style');
+	         }
+	         selectedIndex = $(this).closest('tr').children().eq(0).text();
+	        // $(this).closest('tr').css('color','red');
+	         $(this).closest('tr').css('background-color','blue');
+
+	         if ( typeof selectedIndex != 'undefined' ) {
+					$.ajax({
+						method: "POST",
+						url: "admin/getCartProducts", 
+						data: JSON.stringify({ id: selectedIndex }),
+						contentType: "application/json; charset=utf-8"
+					}).done(function(returnedData) {
+						var status = $.parseJSON(returnedData);
+						for (i = 0; i < status.products.length; i++) { 
+							console.log('test');
+						    $('#cart_products').append(status.products[i].name);
+						    $('.well').show();
+						}
+					});
+				}
+	     });
 		
 		$("table").tablesorter({
 			    theme : "bootstrap",

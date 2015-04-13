@@ -14,7 +14,7 @@ class BaseController extends Controller {
 			$login_info .= '<div class="col-md-3" style="text-align: left; padding-left: 40px; ">
 								<a class="" href="/" title="Home"><img src="../assets/images/test2.png" style="height: 50px;"/></a>
 							</div>
-							<div class="col-md-6" style="margin-top: 7px;">'.
+							<div class="col-md-5" style="margin-top: 7px;">'.
 								(Auth::user()->role == 1 ? '
 								<div class="input-group">
 						            <input type="text" class="form-control" placeholder="Search for products..." id="query" name="query" value="">
@@ -23,9 +23,10 @@ class BaseController extends Controller {
 						            </div>
 						        </div>' : '') .
 							'</div>
-							<div class="col-md-3" style="text-align: right;padding-right: 40px;">
-								<span style="color:#497AE4;"> Welcome, ' . Auth::user()->name . ' </span>
+							<div class="col-md-4" style="text-align: right;padding-right: 40px;">
+								<span style="color:#497AE4;"> Здравей, ' . Auth::user()->name . ' </span>
 								&nbsp;	
+								&nbsp;
 								<a class="" href="logout" title="Logout"><img src="../assets/images/logout.png" style="height: 40px;margin-top: 6px;"/></a>
 							</div>';
 		} else {

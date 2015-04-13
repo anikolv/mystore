@@ -89,16 +89,16 @@
         			<div id="sidebar-wrapper">
             			<ul class="sidebar-nav">
                 			<li class="sidebar-brand">
-                    			<a href="#">Admin panel</a>
+                    			<a href="#">Админ панел</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="adminUsers" id="users">Users</a>
+                    			<a href="adminUsers" id="users">Потребители</a>
                 			</li>
                				 <li class="myli">
-                    			<a href="adminProducts" id="products">Products</a>
+                    			<a href="adminProducts" id="products">Продукти</a>
                				 </li>
                				 <li class="myli">
-                    			<a href="adminOrders" id="orders">Orders</a>
+                    			<a href="adminOrders" id="orders">Поръчки</a>
                 			</li>
             			</ul>
         			</div>
@@ -135,7 +135,6 @@
 	<script type="text/javascript" src="../assets/js/jquery.tablesorter.widgets.js"></script>
 	<script type="text/javascript" src="../assets/js/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="../assets/js/jquery.tablesorter.extras-0.1.22.min.js"></script>
-	<script type="text/javascript" src="../assets/js/ko-file.js"></script>
 
 	@section('scripts')
  	@show

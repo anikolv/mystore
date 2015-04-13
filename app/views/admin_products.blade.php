@@ -82,7 +82,7 @@
 				<div class="form-group">
 					 <label for="description">Qty</label>
 					 <input type="text" class="form-control input" id="qty" placeholder="" data-bind="value: qty">		</div>
-				<div class="form-group">
+				<div class="form-group" id="image_div">
 					 <label for="name">Image</label>
 				 	 <div style="position:relative;">
 						<a class='btn btn-primary' href='javascript:;'>
@@ -128,7 +128,7 @@
         // $(this).closest('tr').css('color','red');
          $(this).closest('tr').css('background-color','blue');
          $('#remove').fadeIn();
-     	 $('#modify	').fadeIn();
+     	// $('#modify	').fadeIn();
      });
 
 
@@ -163,6 +163,7 @@
 			});
 
 		$( "#modify" ).click(function() {
+			
 
 			});
 		
@@ -259,7 +260,7 @@
 		          var r, row, c, d = data.products,
 		          total = data.count,
 
-		          headers = ["No", "Name", "Category", "Price", "Qty"],
+		          headers = ["Номер", "Име", "Категория", "Цена", "Количество"],
 				  rows = [],
 		          len = d.length;
 		          for ( r=0; r < len; r++ ) {

@@ -151,4 +151,12 @@ class UserController extends BaseController {
 		
 	}
 	
+	public function removeUser() {
+	
+		$user = User::find(Input::get('id'));
+		$user->delete();
+			
+	
+	}
+	
 }
