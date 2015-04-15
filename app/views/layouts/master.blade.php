@@ -127,9 +127,6 @@
 	<script type="text/javascript" src="../assets/js/knockout-3.2.0.js"></script>
 	<script type="text/javascript" src="../assets/js/knockout.mapping-latest.js"></script>
 	<script type="text/javascript" src="../assets/js/knockout.validation.min.js"></script>
-	<script type="text/javascript" src="../assets/js/knockout.files.js"></script>
-	<script type="text/javascript" src="../assets/js/knockout-file-bindings.js"></script>
-	<script type="text/javascript" src="../assets/js/knockout-file-bind.js"></script>
 	<script type="text/javascript" src="../assets/js/jquery.tablesorter.js"></script>
 	<script type="text/javascript" src="../assets/js/jquery.tablesorter.pager.js"></script>
 	<script type="text/javascript" src="../assets/js/jquery.tablesorter.widgets.js"></script>
