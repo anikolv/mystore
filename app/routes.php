@@ -16,6 +16,7 @@ Route::get('register', 'UserController@register');
 Route::get('login', 'UserController@login');
 Route::post('registerUser', 'UserController@registerUser');
 Route::post('loginUser', 'UserController@loginUser');
+Route::get('store/getPhones', 'ProductController@getPhones');
 
 
 Route::group(array('before' => 'auth'), function() {

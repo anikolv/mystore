@@ -20,11 +20,22 @@
 		</div>
 </div>
 
+	<div data-bind="foreach: phones">
+		<div style="width: 200px;">
+			<img class="image-small" alt=""  data-bind="attr: { src: image_src }">
+			<span data-bind="'text': name"></span>
+			<span data-bind="'text': description"></span>
+		</div>
+	</div>
+
+
 @stop
 
 @section('scripts')
 	<script>
 		$('#loading-indicator').hide();
+
+		var viewModel = null;
 		
 		$(document).ready(function(){
 
@@ -46,7 +57,18 @@
 	  		$.ajax({
 				url : "store/getPhones"
 			}).done(function(data) {
-	  		
+				var status = $.parseJSON(data);
+				console.log(status);
+				viewModel = ko.mapping.fromJS(status);
+				viewModel.phones().forEach(function(phone) {
+
+					phone.image_src = ko.computed(function() {
+						return '../assets/product_images/' + phone.image();
+					}, viewModel);
+					
+				});
+				ko.applyBindings(viewModel);
+			});
 		});
 	</script>		
 @stop

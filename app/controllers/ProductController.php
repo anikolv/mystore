@@ -69,6 +69,17 @@ class ProductController extends BaseController {
  		$product = Product::find(Input::get('id'));
  		$product->delete();
  		
+	}
+	
+	public function getPhones() {
+		
+		$phones = DB::connection('mysql')->select('select * from Products where category = 1');
+		
+
+			
+			$this->status ['result'] = 0;
+			$this->status ['phones'] = $phones;
+			return json_encode($this->status);
 		
 	}
 }
