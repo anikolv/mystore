@@ -12,8 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('register', 'UserController@register');
-Route::get('login', 'UserController@login');
+Route::get('/register', 'UserController@register');
+Route::get('/login', 'UserController@login');
 Route::post('registerUser', 'UserController@registerUser');
 Route::post('loginUser', 'UserController@loginUser');
 Route::get('store/getPhones', 'ProductController@getPhones');
@@ -23,7 +23,7 @@ Route::get('/store/notebooks', 'ProductController@notebooks');
 Route::get('/store/getNotebooks', 'ProductController@getNotebooks');
 Route::get('/store/tvs', 'ProductController@tvs');
 Route::get('/store/getTvs', 'ProductController@getTvs');
-Route::get('/store/addToCart/{id}', 'CartProductController@addToCart');
+Route::post('/store/addToCart/{id}', 'CartProductController@addToCart');
 
 Route::group(array('before' => 'auth'), function() {
 	

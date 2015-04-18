@@ -83,7 +83,6 @@
 				url : "store/getPhones"
 			}).done(function(data) {
 				var status = $.parseJSON(data);
-				console.log(status);
 				viewModel = ko.mapping.fromJS(status);
 				viewModel.phones().forEach(function(phone) {
 
@@ -108,10 +107,12 @@
 						url: "/store/addToCart/" + phone.id(),
 						contentType: "application/json; charset=utf-8"
 					}).done(function(returnedData) {
+						console.log("dobre");
 						
-				};
-				ko.applyBindings(viewModel);
-			});
+				});
+			};
+			ko.applyBindings(viewModel);
 		});
+	});
 	</script>		
 @stop

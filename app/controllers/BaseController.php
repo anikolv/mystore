@@ -42,9 +42,9 @@ class BaseController extends Controller {
 						        </div>
 							</div>
 							<div class="col-md-3" style="text-align: right;padding-right: 40px;">
-								<a class="" href="login" title="Login"><img src="../assets/images/login.png" style="height: 40px;"/></a>
+								<a class="" href="/login" title="Login"><img src="../assets/images/login.png" style="height: 40px;"/></a>
 									&nbsp;&nbsp;&nbsp;
-								<a class="" href="register" title="Register"><img src="../assets/images/registereduser.png" style="height: 50px;;"/></a>
+								<a class="" href="/register" title="Register"><img src="../assets/images/registereduser.png" style="height: 50px;;"/></a>
 							</div>';
 		}
 		View::share('login_info', $login_info);
