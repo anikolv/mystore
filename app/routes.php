@@ -17,7 +17,12 @@ Route::get('login', 'UserController@login');
 Route::post('registerUser', 'UserController@registerUser');
 Route::post('loginUser', 'UserController@loginUser');
 Route::get('store/getPhones', 'ProductController@getPhones');
-
+Route::get('/store/tablets', 'ProductController@tablets');
+Route::get('/store/getTablets', 'ProductController@getTablets');
+Route::get('/store/notebooks', 'ProductController@notebooks');
+Route::get('/store/getNotebooks', 'ProductController@getNotebooks');
+Route::get('/store/tvs', 'ProductController@tvs');
+Route::get('/store/getTvs', 'ProductController@getTvs');
 
 Route::group(array('before' => 'auth'), function() {
 	

@@ -71,15 +71,62 @@ class ProductController extends BaseController {
  		
 	}
 	
+	public function tablets() {
+	
+		return View::make('tablets');
+	
+	}
+	
+	public function notebooks() {
+	
+		return View::make('notebooks');
+	
+	}
+	
+	public function tvs() {
+	
+		return View::make('tvs');
+	
+	}
+	
+	
 	public function getPhones() {
 		
 		$phones = DB::connection('mysql')->select('select * from Products where category = 1');
 		
-
-			
-			$this->status ['result'] = 0;
-			$this->status ['phones'] = $phones;
-			return json_encode($this->status);
+		$this->status ['result'] = 0;
+		$this->status ['phones'] = $phones;
+		return json_encode($this->status);
 		
+	}
+	
+	public function getTablets() {
+	
+		$tablets = DB::connection('mysql')->select('select * from Products where category = 2');
+			
+		$this->status ['result'] = 0;
+		$this->status ['tablets'] = $tablets;
+		return json_encode($this->status);
+	
+	}
+	
+	public function getNotebooks() {
+	
+		$notebooks = DB::connection('mysql')->select('select * from Products where category = 3');
+			
+		$this->status ['result'] = 0;
+		$this->status ['notebooks'] = $notebooks;
+		return json_encode($this->status);
+	
+	}
+	
+	public function getTvs() {
+	
+		$tvs = DB::connection('mysql')->select('select * from Products where category = 4');
+			
+		$this->status ['result'] = 0;
+		$this->status ['tvs'] = $tvs;
+		return json_encode($this->status);
+	
 	}
 }

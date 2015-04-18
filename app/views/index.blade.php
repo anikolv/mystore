@@ -35,10 +35,10 @@
 					</div>
 				</div>
 			 	<div class="col-md-4">
-			 		<div class="row" style="margin-bottom: 80px;">
+			 		<div class="row" style="margin-bottom: 80px;text-align: center;">
 			 			<span class="product-title" data-bind="'text': amount"></span>
 			 		</div>
-			 		<div class="row">
+			 		<div class="row" style="text-align: center;">
 			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind=''>
 			 		</div>
 			 	</div>
@@ -57,6 +57,8 @@
 		$('#loading-indicator').hide();
 
 		var viewModel = null;
+
+		$('#phones').addClass('liActive');
 		
 		$(document).ready(function(){
 

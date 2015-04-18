@@ -48,16 +48,16 @@
                     			<a href="#">Потребителски панел</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="#">Телефони</a>
+                    			<a href="/" id="phones">Телефони</a>
                 			</li>
                				 <li class="myli">
-                    			<a href="#">Таблети</a>
+                    			<a href="/store/tablets" id="tablets">Таблети</a>
                				 </li>
                				 <li class="myli">
-                    			<a href="#">Лаптопи</a>
+                    			<a href="/store/notebooks" id="notebooks">Лаптопи</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="#">Телевизори</a>
+                    			<a href="/store/tvs" id="tvs">Телевизори</a>
                 			</li>
                 			<li class="myli">
                    				 <a href="#">Количка</a>
