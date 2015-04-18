@@ -69,16 +69,16 @@
                     			<a href="#">Контакти</a>
                 			</li>
                 				<div class="slider8">
-  									<div class="slide"><img src="http://placehold.it/300x100&text=FooBar1"></div>
-  									<div class="slide"><img src="http://placehold.it/300x100&text=FooBar2"></div>
-  									<div class="slide"><img src="http://placehold.it/300x100&text=FooBar3"></div>
-  									<div class="slide"><img src="http://placehold.it/300x100&text=FooBar4"></div>
-  									<div class="slide"><img src="http://placehold.it/300x100&text=FooBar5"></div>
- 								    <div class="slide"><img src="http://placehold.it/300x100&text=FooBar6"></div>
-  									<div class="slide"><img src="http://placehold.it/300x100&text=FooBar7"></div>
-  									<div class="slide"><img src="http://placehold.it/300x100&text=FooBar8"></div>
-  									<div class="slide"><img src="http://placehold.it/300x100&text=FooBar9"></div>
-  									<div class="slide"><img src="http://placehold.it/300x100&text=FooBar10"></div>
+  									<div class="slide"><img src="http://ausdroid.net/wp-content/uploads/2015/01/Aldi-Medion-4.5-22-smartphone-banner.jpg"></div>
+  									<div class="slide"><img src="http://thumbs.dreamstime.com/x/deals-smartphone-shows-online-offers-bargains-promotions-showing-38118776.jpg"></div>
+  									<div class="slide"><img src="http://ausdroid.net/wp-content/uploads/2015/01/Aldi-Medion-4.5-22-smartphone-banner.jpg"></div>
+  									<div class="slide"><img src="http://thumbs.dreamstime.com/x/deals-smartphone-shows-online-offers-bargains-promotions-showing-38118776.jpg"></div>
+  									<div class="slide"><img src="http://ausdroid.net/wp-content/uploads/2015/01/Aldi-Medion-4.5-22-smartphone-banner.jpg"></div>
+ 								    <div class="slide"><img src="http://thumbs.dreamstime.com/x/deals-smartphone-shows-online-offers-bargains-promotions-showing-38118776.jpg"></div>
+  									<div class="slide"><img src="http://ausdroid.net/wp-content/uploads/2015/01/Aldi-Medion-4.5-22-smartphone-banner.jpg"></div>
+  									<div class="slide"><img src="http://thumbs.dreamstime.com/x/deals-smartphone-shows-online-offers-bargains-promotions-showing-38118776.jpg"></div>
+  									<div class="slide"><img src="http://ausdroid.net/wp-content/uploads/2015/01/Aldi-Medion-4.5-22-smartphone-banner.jpg"></div>
+  									<div class="slide"><img src="http://thumbs.dreamstime.com/x/deals-smartphone-shows-online-offers-bargains-promotions-showing-38118776.jpg"></div>
 								</div>
             			</ul>
         			</div>

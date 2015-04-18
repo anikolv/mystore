@@ -92,7 +92,7 @@ class ProductController extends BaseController {
 	
 	public function getPhones() {
 		
-		$phones = DB::connection('mysql')->select('select * from Products where category = 1');
+		$phones = DB::connection('mysql')->select('select * from Products where category = 1 and qty > 0');
 		
 		$this->status ['result'] = 0;
 		$this->status ['phones'] = $phones;
@@ -102,7 +102,7 @@ class ProductController extends BaseController {
 	
 	public function getTablets() {
 	
-		$tablets = DB::connection('mysql')->select('select * from Products where category = 2');
+		$tablets = DB::connection('mysql')->select('select * from Products where category = 2 and qty > 0');
 			
 		$this->status ['result'] = 0;
 		$this->status ['tablets'] = $tablets;
@@ -112,7 +112,7 @@ class ProductController extends BaseController {
 	
 	public function getNotebooks() {
 	
-		$notebooks = DB::connection('mysql')->select('select * from Products where category = 3');
+		$notebooks = DB::connection('mysql')->select('select * from Products where category = 3 and qty > 0');
 			
 		$this->status ['result'] = 0;
 		$this->status ['notebooks'] = $notebooks;
@@ -122,7 +122,7 @@ class ProductController extends BaseController {
 	
 	public function getTvs() {
 	
-		$tvs = DB::connection('mysql')->select('select * from Products where category = 4');
+		$tvs = DB::connection('mysql')->select('select * from Products where category = 4 and qty > 0');
 			
 		$this->status ['result'] = 0;
 		$this->status ['tvs'] = $tvs;
