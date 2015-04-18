@@ -45,28 +45,28 @@
         			<div id="sidebar-wrapper">
             			<ul class="sidebar-nav">
                 			<li class="sidebar-brand">
-                    			<a href="#">User panel</a>
+                    			<a href="#">Потребителски панел</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="#">Phones</a>
+                    			<a href="#">Телефони</a>
                 			</li>
                				 <li class="myli">
-                    			<a href="#">Tablets</a>
+                    			<a href="#">Таблети</a>
                				 </li>
                				 <li class="myli">
-                    			<a href="#">Notebooks</a>
+                    			<a href="#">Лаптопи</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="#">TVs</a>
+                    			<a href="#">Телевизори</a>
                 			</li>
                 			<li class="myli">
-                   				 <a href="#">Shopping cart</a>
+                   				 <a href="#">Количка</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="#">User account</a>
+                    			<a href="#">Потребителски акаунт</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="#">Contact</a>
+                    			<a href="#">Контакти</a>
                 			</li>
                 				<div class="slider8">
   									<div class="slide"><img src="http://placehold.it/300x100&text=FooBar1"></div>

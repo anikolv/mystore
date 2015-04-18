@@ -21,10 +21,22 @@
 </div>
 
 	<div data-bind="foreach: phones">
-		<div style="width: 200px;">
-			<img class="image-small" alt=""  data-bind="attr: { src: image_src }">
-			<span data-bind="'text': name"></span>
-			<span data-bind="'text': description"></span>
+		<div class="well-white">
+			<div class="row">
+				<div class="col-md-3">
+					<img class="image-small" alt=""  data-bind="attr: { src: image_src }">
+				</div>
+				<div class="col-md-4 col-md-push-4">
+					<span class="product-title" data-bind="'text': name"></span>
+					<br>
+					<span class="" data-bind="'text': description" style="color: black;"></span>
+				</div>
+			 	<div class="col-md-4">
+			 	</div>
+			</div>
+			<div class="row">
+				<span class="product-price" data-bind="'text': price_computed"></span>
+			</div>
 		</div>
 	</div>
 
@@ -64,6 +76,10 @@
 
 					phone.image_src = ko.computed(function() {
 						return '../assets/product_images/' + phone.image();
+					}, viewModel);
+
+					phone.price_computed = ko.computed(function() {
+						return phone.price_bgn() + ' лв';
 					}, viewModel);
 					
 				});
