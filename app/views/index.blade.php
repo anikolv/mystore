@@ -26,10 +26,13 @@
 				<div class="col-md-3">
 					<img class="image-small" alt=""  data-bind="attr: { src: image_src }">
 				</div>
-				<div class="col-md-4 col-md-push-4">
-					<span class="product-title" data-bind="'text': name"></span>
-					<br>
-					<span class="" data-bind="'text': description" style="color: black;"></span>
+				<div class="col-md-4">
+					<div class="row" style="">
+						<span class="product-title" data-bind="'text': name"></span>
+					</div>
+					<div class="row">
+						<span class="" data-bind="'text': description" style="color: black;font-size:20px;"></span>
+					</div>
 				</div>
 			 	<div class="col-md-4">
 			 	</div>
