@@ -26,8 +26,8 @@
 				<div class="col-md-3">
 					<img class="image-small" alt=""  data-bind="attr: { src: image_src }">
 				</div>
-				<div class="col-md-4">
-					<div class="row" style="">
+				<div class="col-md-4" style="margin-right: 60px;">
+					<div class="row" style="margin-bottom: 40px;">
 						<span class="product-title" data-bind="'text': name"></span>
 					</div>
 					<div class="row">
@@ -35,6 +35,12 @@
 					</div>
 				</div>
 			 	<div class="col-md-4">
+			 		<div class="row" style="margin-bottom: 80px;">
+			 			<span class="product-title" data-bind="'text': amount"></span>
+			 		</div>
+			 		<div class="row">
+			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind=''>
+			 		</div>
 			 	</div>
 			</div>
 			<div class="row">
@@ -79,6 +85,10 @@
 
 					phone.image_src = ko.computed(function() {
 						return '../assets/product_images/' + phone.image();
+					}, viewModel);
+
+					phone.amount = ko.computed(function() {
+						return 'Налично количество: ' + phone.qty();
 					}, viewModel);
 
 					phone.price_computed = ko.computed(function() {
