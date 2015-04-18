@@ -70,12 +70,14 @@
 				$('#loading-indicator').hide();	
 			});
 			
-	  		$('.slider8').bxSlider({
+	  		slider = $('.slider8').bxSlider({
 	    		mode: 'vertical',
 	    		slideWidth: 300,
 	    		minSlides: 2,
 	    		slideMargin: 10
 	  		});
+
+	  		slider.startAuto();
 
 	  		$.ajax({
 				url : "/store/getTvs"

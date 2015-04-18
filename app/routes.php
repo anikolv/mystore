@@ -23,6 +23,7 @@ Route::get('/store/notebooks', 'ProductController@notebooks');
 Route::get('/store/getNotebooks', 'ProductController@getNotebooks');
 Route::get('/store/tvs', 'ProductController@tvs');
 Route::get('/store/getTvs', 'ProductController@getTvs');
+Route::get('/store/addToCart/{id}', 'CartProductController@addToCart');
 
 Route::group(array('before' => 'auth'), function() {
 	

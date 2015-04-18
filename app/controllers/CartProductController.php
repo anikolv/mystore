@@ -18,4 +18,10 @@ class CartProductController extends BaseController {
 		return json_encode($this->status);
 		
 	}
+	
+	public function addToCart($productId) {
+		
+		$cart = Cart::create(['name' => Input::get('name')]);
+		
+	}
 }

@@ -39,7 +39,7 @@
 			 			<span class="product-title" data-bind="'text': amount"></span>
 			 		</div>
 			 		<div class="row" style="text-align: center;">
-			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind=''>
+			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind='click:  function(phone) { $parent.cart_request(phone)}'>
 			 		</div>
 			 	</div>
 			</div>
@@ -70,12 +70,14 @@
 				$('#loading-indicator').hide();	
 			});
 			
-	  		$('.slider8').bxSlider({
+			slider = $('.slider8').bxSlider({
 	    		mode: 'vertical',
 	    		slideWidth: 300,
 	    		minSlides: 2,
 	    		slideMargin: 10
 	  		});
+
+			slider.startAuto();
 
 	  		$.ajax({
 				url : "store/getPhones"
@@ -98,6 +100,16 @@
 					}, viewModel);
 					
 				});
+
+				viewModel.cart_request = function(phone) {
+						
+					$.ajax({
+						method: "POST",
+						url: "/store/addToCart/" + phone.id(),
+						contentType: "application/json; charset=utf-8"
+					}).done(function(returnedData) {
+						
+				};
 				ko.applyBindings(viewModel);
 			});
 		});

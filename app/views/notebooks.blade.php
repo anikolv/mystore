@@ -23,7 +23,7 @@
 	<div data-bind="foreach: notebooks">
 		<div class="well-white">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-3" style="margin-top: 50px;">
 					<img class="image-small" alt=""  data-bind="attr: { src: image_src }">
 				</div>
 				<div class="col-md-4" style="margin-right: 60px;">
@@ -70,12 +70,14 @@
 				$('#loading-indicator').hide();	
 			});
 			
-	  		$('.slider8').bxSlider({
+	  		slider = $('.slider8').bxSlider({
 	    		mode: 'vertical',
 	    		slideWidth: 300,
 	    		minSlides: 2,
 	    		slideMargin: 10
 	  		});
+	  		
+	  		slider.startAuto();
 
 	  		$.ajax({
 				url : "/store/getNotebooks"
