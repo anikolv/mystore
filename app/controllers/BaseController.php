@@ -9,6 +9,7 @@ class BaseController extends Controller {
 	 */
 	
 	public function __construct() {
+		Session::push('products_amount', 0);
 		$login_info = '';
 		if (Auth::user() != null) {
 			$login_info .= '<div class="col-md-3" style="text-align: left; padding-left: 40px; ">

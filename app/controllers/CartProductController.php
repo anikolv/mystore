@@ -76,7 +76,6 @@ class CartProductController extends BaseController {
 				Session::push('cart', $cartId);
 				Session::forget('products_amount');
 				Session::push('products_amount', $products_count);
-				Log::info(Session::get('products_amount'));
 				
 		} else {
 			
@@ -91,10 +90,9 @@ class CartProductController extends BaseController {
 												]);
 			
 			if( isset($cartProduct) ) $products_count++;
-			Log::info("kakvo stava be: " . $products_count);
 			Session::push('cart', $cart->id);
-			Session::push('products_amount', (int)$products_count);
-			Log::info(Session::get('products_amount'));
+			Session::forget('products_amount');
+			Session::push('products_amount', $products_count);
 			
 		}		
 	}
@@ -106,13 +104,11 @@ class CartProductController extends BaseController {
 		$products_count = Session::get('products_amount')[0];
 		Log::info(Session::get('products_amount'));
 		
-		DB::connection('mysql')->delete('delete from carts_products where cart_id = ? and product_id = ?', array($cartId[0], $productId));
+		DB::connection('mysql')->delete('delete from carts_products where cart_id = ? and product_id = ? limit 1', array($cartId[0], $productId));
 		
 		$products_count = $products_count - 1;
 		Session::forget('products_amount');
 		Session::push('products_amount', $products_count);
-		Log::info($products_count);
-		Log::info(Session::get('products_amount')[0]);
 		
 	}
 }
