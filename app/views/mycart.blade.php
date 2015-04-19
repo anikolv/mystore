@@ -20,10 +20,10 @@
 		</div>
 </div>
 
-	<div data-bind="foreach: notebooks">
+<div id="products" data-bind="foreach: products">
 		<div class="well-white">
 			<div class="row">
-				<div class="col-md-3" style="margin-top: 50px;">
+				<div class="col-md-3">
 					<img class="image-small" alt=""  data-bind="attr: { src: image_src }">
 				</div>
 				<div class="col-md-4" style="margin-right: 60px;">
@@ -35,11 +35,8 @@
 					</div>
 				</div>
 			 	<div class="col-md-4">
-			 		<div class="row" style="margin-bottom: 80px;text-align: center;">
-			 			<span class="product-title" data-bind="'text': amount"></span>
-			 		</div>
 			 		<div class="row" style="text-align: center;">
-			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind='click:  function(notebook) { $parent.cart_request(notebook)}'>
+			 			<input type="button" class="btn btn-primary" value="Премахни от количка" data-bind=''>
 			 		</div>
 			 	</div>
 			</div>
@@ -47,6 +44,9 @@
 				<span class="product-price" data-bind="'text': price_computed"></span>
 			</div>
 		</div>
+	</div>
+
+	<div id="empty_cart" class="alert alert-info" role="alert" style="margin-right: 50px;margin-top: 300px">
 	</div>
 
 
@@ -58,7 +58,8 @@
 
 		var viewModel = null;
 
-		$('#notebooks').addClass('liActive');
+		$('#mycart').addClass('liActive');
+		
 		
 		$(document).ready(function(){
 
@@ -80,38 +81,28 @@
 	  		slider.startAuto();
 
 	  		$.ajax({
-				url : "/store/getNotebooks"
+				url : "/store/getMyCart"
 			}).done(function(data) {
 				var status = $.parseJSON(data);
-				console.log(status);
-				viewModel = ko.mapping.fromJS(status);
-				viewModel.notebooks().forEach(function(notebook) {
+				if ( status.result ) {
+					$('#products').hide();
+					$('#empty_cart').html('Вашата количка е празна !');
+				} else {
+					$('#empty_cart').hide();
+					viewModel = ko.mapping.fromJS(status);
+					viewModel.products().forEach(function(product) {
 
-					notebook.image_src = ko.computed(function() {
-						return '../assets/product_images/' + notebook.image();
-					}, viewModel);
+						product.image_src = ko.computed(function() {
+							return '../assets/product_images/' + product.image();
+						}, viewModel);
 
-					notebook.amount = ko.computed(function() {
-						return 'Налично количество: ' + notebook.qty();
-					}, viewModel);
-
-					notebook.price_computed = ko.computed(function() {
-						return notebook.price_bgn() + ' лв';
-					}, viewModel);
-					
-				});
-
-				viewModel.cart_request = function(notebook) {
-					
-					$.ajax({
-						method: "POST",
-						url: "/store/addToCart/" + notebook.id(),
-						contentType: "application/json; charset=utf-8"
-					}).done(function(returnedData) {
-						window.location = "/";
-				});
-			};
-			ko.applyBindings(viewModel);
+						product.price_computed = ko.computed(function() {
+							return product.price_bgn() + ' лв';
+						}, viewModel);
+						
+					});
+					ko.applyBindings(viewModel);
+				}
 			});
 		});
 	</script>		

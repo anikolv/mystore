@@ -39,7 +39,7 @@
 			 			<span class="product-title" data-bind="'text': amount"></span>
 			 		</div>
 			 		<div class="row" style="text-align: center;">
-			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind=''>
+			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind='click:  function(tv) { $parent.cart_request(tv)}'>
 			 		</div>
 			 	</div>
 			</div>
@@ -99,6 +99,17 @@
 					}, viewModel);
 					
 				});
+
+				viewModel.cart_request = function(tv) {
+					
+					$.ajax({
+						method: "POST",
+						url: "/store/addToCart/" + tv.id(),
+						contentType: "application/json; charset=utf-8"
+					}).done(function(returnedData) {
+						window.location = "/";
+					});
+				};
 				ko.applyBindings(viewModel);
 			});
 		});

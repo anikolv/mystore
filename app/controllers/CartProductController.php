@@ -1,6 +1,42 @@
 <?php
 
 class CartProductController extends BaseController {
+	
+	public function myCart() {
+		
+		return View::make('mycart');
+		
+	}
+	
+	public function getMyCart() {
+		
+		if( null !== Session::get('cart') || null !== Session::get('product_amount')) {
+			
+				$cartId = Session::get('cart');
+			
+				$cart_products = DB::connection('mysql')->select('select p.*
+											         			  from carts_products cp
+												     			  left join products p on cp.product_id = p.id
+												     			  where cp.cart_id = ?',
+													 			  array($cartId[0]));
+				
+				if ( !empty($cart_products) ) {
+					
+					$this->status ['result'] = 0;
+					$this->status ['products'] = $cart_products;
+					return json_encode($this->status);
+					
+				} else {
+					$this->status ['result'] = 1;
+					return json_encode($this->status);
+				}
+			
+		} else {
+			$this->status ['result'] = 1;
+			return json_encode($this->status);
+		}
+		
+	}
 
 	public function getCartProducts() {
 		
