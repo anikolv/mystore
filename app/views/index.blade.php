@@ -107,8 +107,7 @@
 						url: "/store/addToCart/" + phone.id(),
 						contentType: "application/json; charset=utf-8"
 					}).done(function(returnedData) {
-						console.log("dobre");
-						
+						window.location = "/";
 				});
 			};
 			ko.applyBindings(viewModel);
