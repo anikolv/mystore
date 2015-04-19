@@ -60,7 +60,7 @@
                     			<a href="/store/tvs" id="tvs">Телевизори</a>
                 			</li>
                 			<li class="myli">
-                   				 <a href="/store/mycart" id="mycart">Количка {{ '( ' }} {{ count(Session::get('products_amount')); }} {{ ' )' }}</a>
+                   				 <a href="/store/mycart" id="mycart">Количка {{ '( ' }} {{ Session::get('products_amount')[0]; }} {{ ' )' }}</a>
                 			</li>
                 			<li class="myli">
                     			<a href="#">Потребителски акаунт</a>

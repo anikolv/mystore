@@ -36,7 +36,6 @@ class CartController extends BaseController {
 												  cd.address as CUSTOMER_ADDRESS, c.cost as CART_COST, c.status as CART_STATUS
 												  from carts c
 												  left join cart_details cd on c.id = cd.cartid
-												  where c.status = "PAID"
 												   order by ' . $sorting
 												);
 		

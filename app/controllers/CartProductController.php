@@ -64,7 +64,7 @@ class CartProductController extends BaseController {
 			
 			
 			$cartId = Session::get('cart');
-			$products_count = Session::get('products_amount');
+			$products_count = Session::get('products_amount')[0];
 
 				$cartProduct = CartProduct::create(['cart_id' => $cartId[0],
 									 				'product_id' => $productId,
@@ -74,8 +74,9 @@ class CartProductController extends BaseController {
 				
 				if( isset($cartProduct) ) $products_count++;
 				Session::push('cart', $cartId);
+				Session::forget('products_amount');
 				Session::push('products_amount', $products_count);
-				
+				Log::info(Session::get('products_amount'));
 				
 		} else {
 			
@@ -90,9 +91,28 @@ class CartProductController extends BaseController {
 												]);
 			
 			if( isset($cartProduct) ) $products_count++;
+			Log::info("kakvo stava be: " . $products_count);
 			Session::push('cart', $cart->id);
-			Session::push('products_amount', $products_count);
+			Session::push('products_amount', (int)$products_count);
+			Log::info(Session::get('products_amount'));
 			
 		}		
+	}
+	
+	public function removeFromCart($productId) {
+		
+
+		$cartId = Session::get('cart');
+		$products_count = Session::get('products_amount')[0];
+		Log::info(Session::get('products_amount'));
+		
+		DB::connection('mysql')->delete('delete from carts_products where cart_id = ? and product_id = ?', array($cartId[0], $productId));
+		
+		$products_count = $products_count - 1;
+		Session::forget('products_amount');
+		Session::push('products_amount', $products_count);
+		Log::info($products_count);
+		Log::info(Session::get('products_amount')[0]);
+		
 	}
 }

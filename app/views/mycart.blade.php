@@ -35,8 +35,8 @@
 					</div>
 				</div>
 			 	<div class="col-md-4">
-			 		<div class="row" style="text-align: center;">
-			 			<input type="button" class="btn btn-primary" value="Премахни от количка" data-bind=''>
+			 		<div class="row" style="text-align: center;margin-top: 90px;">
+			 			<input type="button" class="btn btn-primary" value="Премахни от количка" data-bind='click:  function(product) { $parent.remove_product(product)}'>
 			 		</div>
 			 	</div>
 			</div>
@@ -101,6 +101,17 @@
 						}, viewModel);
 						
 					});
+
+					viewModel.remove_product = function(product) {
+						
+						$.ajax({
+							method: "POST",
+							url: "/store/removeFromCart/" + product.id(),
+							contentType: "application/json; charset=utf-8"
+						}).done(function(returnedData) {
+							window.location = "/store/mycart";
+					});
+				};
 					ko.applyBindings(viewModel);
 				}
 			});
