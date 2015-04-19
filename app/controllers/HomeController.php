@@ -24,5 +24,11 @@ class HomeController extends BaseController {
 		}
 		
 	}
+	
+	public function chooseDetails() {
+	
+		return View::make('choose_details');
+	
+	}
 
 }

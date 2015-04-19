@@ -48,6 +48,9 @@
 
 	<div id="empty_cart" class="alert alert-info" role="alert" style="margin-right: 50px;margin-top: 300px">
 	</div>
+	<div class="row" style="margin-bottom:100px">
+		<input id="go" type="button" class="btn btn-success" value="Купи" style="width: 200px;margin-right: 150px;">
+	</div>
 
 
 @stop
@@ -57,12 +60,17 @@
 		$('#loading-indicator').hide();
 
 		var viewModel = null;
+		$('#empty_cart').hide();
 
 		$('#mycart').addClass('liActive');
 		
 		
 		$(document).ready(function(){
 
+			$( "#go" ).click(function() {
+				window.location = "/store/choose_details/";
+			});
+			
 			$(document).ajaxStart(function() {
 				$('#loading-indicator').show();
 			});
@@ -87,6 +95,7 @@
 				if ( status.result ) {
 					$('#products').hide();
 					$('#empty_cart').html('Вашата количка е празна !');
+					$('#empty_cart').show();
 				} else {
 					$('#empty_cart').hide();
 					viewModel = ko.mapping.fromJS(status);

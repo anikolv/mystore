@@ -27,6 +27,7 @@ Route::post('/store/addToCart/{id}', 'CartProductController@addToCart');
 Route::get('/store/mycart', 'CartProductController@myCart');
 Route::get('/store/getMyCart', 'CartProductController@getMyCart');
 Route::post('/store/removeFromCart/{id}', 'CartProductController@removeFromCart');
+Route::get('/store/choose_details/', 'HomeController@chooseDetails');
 
 Route::group(array('before' => 'auth'), function() {
 	
