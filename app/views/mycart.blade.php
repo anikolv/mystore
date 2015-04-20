@@ -61,6 +61,7 @@
 
 		var viewModel = null;
 		$('#empty_cart').hide();
+		$('#go').hide();
 
 		$('#mycart').addClass('liActive');
 		
@@ -98,6 +99,7 @@
 					$('#empty_cart').show();
 				} else {
 					$('#empty_cart').hide();
+					$('#go').show();
 					viewModel = ko.mapping.fromJS(status);
 					viewModel.products().forEach(function(product) {
 
