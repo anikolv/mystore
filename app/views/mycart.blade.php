@@ -14,6 +14,11 @@
 
 <div class="row">
 		<div class="col-md-11">
+			<div id="legend">
+					<legend style="padding-right: 120px;">
+						Количка
+					</legend>
+			</div>
 		</div>
 		<div class="col-md-1">
 			<img src="../assets/images/loader.gif" id="loading-indicator" />

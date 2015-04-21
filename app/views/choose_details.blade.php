@@ -42,8 +42,8 @@
 							 <input type="email" class="form-control input" id="email" placeholder="" data-bind="value: email">
 					</div>
 					<div class="row" style="margin-left: 140px;">
-						<input type="button" class="btn btn-primary" value="Купи" data-bind='click: buy'>
-						<a href="">.. или влез в профила си</a>
+						<input id="buy" type="button" class="btn btn-primary" value="Купи" data-bind=''>
+						<a id="enter" href="/login">.. или влез в профила си</a>
 					</div>
 				</fieldset>
 				</form>
@@ -73,6 +73,18 @@
 	  		$(document).ajaxStop(function() {
 	  			$('#loading-indicator').hide();
 	  		});
+
+	  		$.ajax({
+				url : "/user/getDetails/"
+			}).done(function(data) {
+				var status = $.parseJSON(data);
+				if ( !status.result ) {
+					viewModel = ko.mapping.fromJS(status);
+					ko.applyBindings(viewModel);
+					$('#enter').hide();
+					$('#buy').css('margin-right', '160px');
+				}
+		});
 		});
 	</script>	
 @stop

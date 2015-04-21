@@ -34,7 +34,7 @@ class UserController extends BaseController {
 		$user->address = $address;
 		$user->password = Hash::make($password);
 		$user->active = 1;
-		$user->role = 2;
+		$user->role = 1;
 		
 		$user->save();
 		
@@ -56,10 +56,10 @@ class UserController extends BaseController {
 		->first();
 		
 		if( $user && Hash::check($password, $user->password) ) {
-			Log::info("check2");
 			Auth::login($user, $remember);
 			
 			$this->status["result"] = 0;
+			$this->status["role"] = $user->role;
 			$this->status["message"] = "Success	.";
 			return json_encode($this->status);
 			
@@ -157,6 +157,22 @@ class UserController extends BaseController {
 		$user->delete();
 			
 	
+	}
+	
+	public function getDetails() {
+		
+		if (Auth::user() != null) {
+			$this->status['result'] = 0;
+			$this->status['name'] = Auth::user()->name;
+			$this->status['address'] = Auth::user()->address;
+			$this->status['email'] = Auth::user()->email;
+			
+			return json_encode($this->status);
+		} else {
+			$this->status['result'] = 1;
+			return json_encode($this->status);
+		}
+		
 	}
 	
 }

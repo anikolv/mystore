@@ -97,8 +97,10 @@
 									}).done(function(returnedData) {
  										var status = $.parseJSON(returnedData);
 
- 										if(!status.result)
+ 										if(!status.result && status.role == 2)
  									   	  	window.location = "adminOrders";
+ 										if(!status.result && status.role == 1)
+ 									   	  	window.location = "/";
  										else 
  											$('.well').append('<div class="alert alert-danger" role="alert" style="margin-right:156px; margin-top:30px;">' + status.message + '</div>');
 									});

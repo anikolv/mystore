@@ -28,13 +28,14 @@ Route::get('/store/mycart', 'CartProductController@myCart');
 Route::get('/store/getMyCart', 'CartProductController@getMyCart');
 Route::post('/store/removeFromCart/{id}', 'CartProductController@removeFromCart');
 Route::get('/store/choose_details/', 'HomeController@chooseDetails');
+Route::get('/user/getDetails/', 'UserController@getDetails');
 
 Route::group(array('before' => 'auth'), function() {
 	
 	Route::get('adminProducts', 'AdminController@adminProducts');
 	Route::get('adminOrders', 'AdminController@adminOrders');
 	Route::get('adminUsers', 'AdminController@adminUsers');
-	Route::get('logout', 'UserController@logout');
+	Route::get('/logout', 'UserController@logout');
 	Route::get('admin/orders', 'CartController@orders');
 	Route::get('admin/users', 'UserController@getUsers');
 	Route::get('admin/products', 'ProductController@getProducts');
