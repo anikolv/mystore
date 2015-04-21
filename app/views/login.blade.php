@@ -101,7 +101,7 @@
  									   	  	window.location = "adminOrders";
  										if(!status.result && status.role == 1)
  									   	  	window.location = "/";
- 										else 
+ 										if(status.result) 
  											$('.well').append('<div class="alert alert-danger" role="alert" style="margin-right:156px; margin-top:30px;">' + status.message + '</div>');
 									});
 								} else {

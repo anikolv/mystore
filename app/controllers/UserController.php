@@ -60,6 +60,7 @@ class UserController extends BaseController {
 			
 			$this->status["result"] = 0;
 			$this->status["role"] = $user->role;
+			$this->status["redirect"] = $this->loginFlag;
 			$this->status["message"] = "Success	.";
 			return json_encode($this->status);
 			
@@ -160,6 +161,8 @@ class UserController extends BaseController {
 	}
 	
 	public function getDetails() {
+		
+		$this->loginFlag = true;
 		
 		if (Auth::user() != null) {
 			$this->status['result'] = 0;
