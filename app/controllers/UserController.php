@@ -169,6 +169,7 @@ class UserController extends BaseController {
 			$this->status['name'] = Auth::user()->name;
 			$this->status['address'] = Auth::user()->address;
 			$this->status['email'] = Auth::user()->email;
+			$this->status['amount'] = Session::get('amount')[0];
 			
 			return json_encode($this->status);
 		} else {

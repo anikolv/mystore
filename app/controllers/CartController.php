@@ -80,4 +80,8 @@ class CartController extends BaseController {
 		
 		
 	}
+	
+	public function notify() {
+		Log::info("NOTIFY HIT");
+	}
 }

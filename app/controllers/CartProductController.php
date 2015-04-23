@@ -65,6 +65,7 @@ class CartProductController extends BaseController {
 			
 			$cartId = Session::get('cart');
 			$products_count = Session::get('products_amount')[0];
+			$amount = Session::get('amount')[0];
 
 				$cartProduct = CartProduct::create(['cart_id' => $cartId[0],
 									 				'product_id' => $productId,
@@ -72,29 +73,40 @@ class CartProductController extends BaseController {
 													'product_qty' => 1
 													]);
 				
-				if( isset($cartProduct) ) $products_count++;
+				if( isset($cartProduct) ){
+					$products_count++;
+					$amount += $product->price_bgn;
+				}
 				Session::push('cart', $cartId);
 				Session::forget('products_amount');
 				Session::push('products_amount', $products_count);
 				
+				Session::forget('amount');
+				Session::push('amount', $amount);
 		} else {
 			
 			$products_count = 0;
+			$amount = 0;
 			$cart = Cart::create(['status' => 'NEW',
 								   'cost' => $product->price_bgn
 								]);
-			Log::info($cart->id);
+
 			$cartProduct = CartProduct::create(['cart_id' => $cart->id,
 												'product_id' => $productId,
 												'product_cost' => $product->price_bgn,
 												'product_qty' => 1
 												]);
 			
-			if( isset($cartProduct) ) $products_count++;
+			if( isset($cartProduct) ) {
+				$products_count++;
+				$amount = $product->price_bgn;
+			}
 			Session::push('cart', $cart->id);
 			Session::forget('products_amount');
 			Session::push('products_amount', $products_count);
 			
+			Session::forget('amount');
+			Session::push('amount', $amount);
 		}		
 	}
 	
