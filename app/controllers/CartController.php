@@ -82,6 +82,8 @@ class CartController extends BaseController {
 	}
 	
 	public function notify() {
-		Log::info("Payment status:" . Input::get('payment_status'));
+		
+		Log::info("ZASHTO NE VLIZASH");
+		
 	}
 }

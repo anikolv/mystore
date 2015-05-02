@@ -40,13 +40,24 @@ class HomeController extends BaseController {
 	public function sendMessage() {
 	
 		$data = array(
-				'content' => Input::get('message')
+				'content' => Input::get('message'),
+				'name' => Input::get('name')
 		);
+		
 
-		Mail::send('email', $data, function($message) {
-			$message->from(Input::get('email'), Input::get('name'));
-			$message->to(Config::get('settings.admin_mail'), 'az')->subject('test');
+		$mail = Mail::send('email', $data, function($message) {
+			$message->to(Config::get('settings.admin_mail'), 'a.nikolov8')->subject('Запитване');
 		});
+		
+		if(count(Mail::failures()) > 0) {
+			$this->status["result"] = 1;
+			$this->status["message"] = "Получи се грешка. Опитай по-късно.";
+			return json_encode($this->status);
+		}
+		
+		$this->status["result"] = 0;
+		$this->status["message"] = "Съобщението е изпратено успешно!";
+		return json_encode($this->status);
 	
 	}
 

@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::post('/notify', 'CartController@notify');
+Route::post('/return', 'HomeController@index');
 Route::get('/register', 'UserController@register');
 Route::get('/login', 'UserController@login');
 Route::post('registerUser', 'UserController@registerUser');
@@ -29,7 +31,6 @@ Route::get('/store/getMyCart', 'CartProductController@getMyCart');
 Route::post('/store/removeFromCart/{id}', 'CartProductController@removeFromCart');
 Route::get('/store/choose_details/', 'HomeController@chooseDetails');
 Route::get('/user/getDetails/', 'UserController@getDetails');
-Route::post('/notify', 'CartController@notify');
 Route::get('/contact', 'HomeController@contact');
 Route::post('/sendMessage', 'HomeController@sendMessage');
 

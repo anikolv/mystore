@@ -51,8 +51,8 @@
                     <input type="hidden" name="currency_code" value="EUR">
                     <input type="hidden" name="amount" data-bind="value: amount"> 
                     <input type="hidden" name="notify_url" value="http://78.83.53.112/notify">
-                    <input type="hidden" name="return" value="http://78.83.53.112/">
-                    <input type="hidden" name="cancel_return" value="http://78.83.53.112/">
+                    <input type="hidden" name="return" value="http://78.83.53.112/return">
+                    <input type="hidden" name="cancel_return" value="http://78.83.53.112/return">
 				</fieldset>
 				</form>
 			</div>
