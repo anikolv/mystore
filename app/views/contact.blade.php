@@ -33,6 +33,10 @@
 							 <input type="text" class="form-control input" id="name" placeholder="" data-bind="value: name">
 					</div>
 					<div class="form-group">
+							 <label for="email">Имейл</label>
+							 <input type="email" class="form-control input" id="email" placeholder="" data-bind="value: email">
+					</div>
+					<div class="form-group">
 							 <label for="password">Съобщение</label>
 							 <textarea class="form-control" rows="3" placeholder="Напишете вашето съобщение.." data-bind="value: message" required></textarea>
 					</div>
@@ -71,12 +75,17 @@
 	  		  		
 	  				name: ko.observable()
 							.extend({required: true}),
+	
+
+					email: ko.observable()
+							.extend({required: true})
+							.extend({pattern: {params: '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$', message: "Please enter valid email"}}),
 
 					message: ko.observable()
 							.extend({required: true}),
 
 					validateFields : function(){
-								this.errors = ko.validation.group([this.name, this.message]);
+								this.errors = ko.validation.group([this.name, this.email, this.message]);
 							},
 
 					send : function() {

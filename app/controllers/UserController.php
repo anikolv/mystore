@@ -178,4 +178,38 @@ class UserController extends BaseController {
 		
 	}
 	
+	public function account() {
+	
+		return View::make('account');
+	
+	}
+	
+	public function getAccount() {
+		
+		if (Auth::user() != null) {
+			$this->status['result'] = 0;
+			$this->status['name'] = Auth::user()->name;
+			$this->status['address'] = Auth::user()->address;
+			$this->status['email'] = Auth::user()->email;
+			
+			return json_encode($this->status);
+		} else {
+			$this->status['result'] = 1;
+			return json_encode($this->status);
+		}
+		
+	}
+	
+	public function changeAccount() {
+			
+		$user = User::find(Auth::user()->id);
+		
+		$user->name = Input::get('name');
+		$user->email = Input::get('email');
+		$user->address = Input::get('address');
+		
+		$user->save();
+		
+	}
+	
 }

@@ -41,7 +41,8 @@ class HomeController extends BaseController {
 	
 		$data = array(
 				'content' => Input::get('message'),
-				'name' => Input::get('name')
+				'name' => Input::get('name'),
+				'mail' => Input::get('email')
 		);
 		
 

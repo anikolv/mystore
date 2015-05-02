@@ -63,7 +63,7 @@
                    				 <a href="/store/mycart" id="mycart">Количка {{ '( ' }} {{ Session::get('products_amount')[0]; }} {{ ' )' }}</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="#">Потребителски акаунт</a>
+                    			<a href="/account">Потребителски акаунт</a>
                 			</li>
                 			<li class="myli">
                     			<a href="/contact">Контакти</a>

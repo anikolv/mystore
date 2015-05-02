@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-	Запитване от {{$name}} :
+	Запитване от: {{$name}}, имейл : {{$mail}}
 	<br>
 	<br>
 		{{$content}}
