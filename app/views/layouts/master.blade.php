@@ -48,7 +48,7 @@
                     			<a href="#">Потребителски панел</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="/" id="phones">Телефони</a>
+                    			<a href="/" id="phones"></img>Телефони</a>
                 			</li>
                				 <li class="myli">
                     			<a href="/store/tablets" id="tablets">Таблети</a>
@@ -66,7 +66,7 @@
                     			<a href="#">Потребителски акаунт</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="#">Контакти</a>
+                    			<a href="/contact">Контакти</a>
                 			</li>
                 				<div class="slider8">	
   									<div class="slide"><img src="http://ausdroid.net/wp-content/uploads/2015/01/Aldi-Medion-4.5-22-smartphone-banner.jpg"></div>

@@ -60,7 +60,6 @@ class UserController extends BaseController {
 			
 			$this->status["result"] = 0;
 			$this->status["role"] = $user->role;
-			$this->status["redirect"] = $this->loginFlag;
 			$this->status["message"] = "Success	.";
 			return json_encode($this->status);
 			
@@ -169,7 +168,7 @@ class UserController extends BaseController {
 			$this->status['name'] = Auth::user()->name;
 			$this->status['address'] = Auth::user()->address;
 			$this->status['email'] = Auth::user()->email;
-			$this->status['amount'] = Session::get('amount')[0];
+			$this->status['amount'] = Session::get('amount')[0] * 0.5;
 			
 			return json_encode($this->status);
 		} else {

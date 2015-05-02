@@ -30,5 +30,24 @@ class HomeController extends BaseController {
 		return View::make('choose_details');
 	
 	}
+	
+	public function contact() {
+	
+		return View::make('contact');
+	
+	}
+	
+	public function sendMessage() {
+	
+		$data = array(
+				'content' => Input::get('message')
+		);
+
+		Mail::send('email', $data, function($message) {
+			$message->from(Input::get('email'), Input::get('name'));
+			$message->to(Config::get('settings.admin_mail'), 'az')->subject('test');
+		});
+	
+	}
 
 }

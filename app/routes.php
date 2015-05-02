@@ -29,7 +29,9 @@ Route::get('/store/getMyCart', 'CartProductController@getMyCart');
 Route::post('/store/removeFromCart/{id}', 'CartProductController@removeFromCart');
 Route::get('/store/choose_details/', 'HomeController@chooseDetails');
 Route::get('/user/getDetails/', 'UserController@getDetails');
-Route::get('/notify', 'CartController@notify');
+Route::post('/notify', 'CartController@notify');
+Route::get('/contact', 'HomeController@contact');
+Route::post('/sendMessage', 'HomeController@sendMessage');
 
 Route::group(array('before' => 'auth'), function() {
 	

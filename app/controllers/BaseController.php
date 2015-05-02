@@ -18,7 +18,7 @@ class BaseController extends Controller {
 							<div class="col-md-5" style="margin-top: 7px;">'.
 								(Auth::user()->role == 1 ? '
 								<div class="input-group">
-						            <input type="text" class="form-control" placeholder="Search for products..." id="query" name="query" value="">
+						            <input type="text" class="form-control" placeholder="Търси продукти..." id="query" name="query" value="">
 							         <div class="input-group-btn">
 						            <button type="submit" class="btn btn-blue"><span class="glyphicon glyphicon-search"></span></button>
 						            </div>
