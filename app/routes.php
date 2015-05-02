@@ -36,6 +36,7 @@ Route::post('/sendMessage', 'HomeController@sendMessage');
 Route::get('/account', 'UserController@account');
 Route::get('/getAccount', 'UserController@getAccount');
 Route::post('/changeAccount', 'UserController@changeAccount');
+Route::post('/search', 'ProductController@search');
 
 Route::group(array('before' => 'auth'), function() {
 	

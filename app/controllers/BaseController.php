@@ -17,12 +17,13 @@ class BaseController extends Controller {
 							</div>
 							<div class="col-md-5" style="margin-top: 7px;">'.
 								(Auth::user()->role == 1 ? '
-								<div class="input-group">
-						            <input type="text" class="form-control" placeholder="Търси продукти..." id="query" name="query" value="">
-							         <div class="input-group-btn">
-						            <button type="submit" class="btn btn-blue"><span class="glyphicon glyphicon-search"></span></button>
-						            </div>
-						        </div>' : '') .
+									<form method="post" action="/search" style="display: flex;">
+						            	<input type="text" class="form-control" placeholder="Търси продукти..." id="query" name="query" value="">
+							         	<div class="input-group-btn">
+						            		<button type="submit" class="btn btn-blue"><span class="glyphicon glyphicon-search"></span></button>
+						            	</div>
+								     </form>
+						        ' : '') .
 							'</div>
 							<div class="col-md-4" style="text-align: right;padding-right: 40px;">
 								<span style="color:#497AE4;"> Здравей, ' . Auth::user()->name . ' </span>

@@ -129,4 +129,12 @@ class ProductController extends BaseController {
 		return json_encode($this->status);
 	
 	}
+	
+	public function search() {
+		
+		$filter = Input::get('query');
+		
+		$products = DB::connection('mysql')->select('select * from Products where name like "%' . $filter . '%"');
+		
+	}
 }
