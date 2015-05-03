@@ -133,8 +133,37 @@ class ProductController extends BaseController {
 	public function search() {
 		
 		$filter = Input::get('query');
-		
 		$products = DB::connection('mysql')->select('select * from Products where name like "%' . $filter . '%"');
+		$key = 'search';
+		
+		if (Cache::has($key)) {
+			Cache::forget($key);
+			Cache::put($key, $products, 10);
+		} else {
+			Cache::put($key, $products, 10);
+		}
+		
+		return View::make('search_results');
+		
+	}
+	
+	public function getSearchResults() {
+		$key = 'search';
+		
+		if (Cache::has($key)) {
+			$products = Cache::get($key);
+			if (count($products) == 0) {
+				$this->status ['result'] = 1;
+				return json_encode($this->status);
+			} else {
+				$this->status ['result'] = 0;
+				$this->status ['products'] = $products;
+				return json_encode($this->status);
+			}
+		} else {
+			$this->status ['result'] = 1;
+			return json_encode($this->status);
+		}
 		
 	}
 }

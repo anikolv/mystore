@@ -23,7 +23,7 @@
 		</div>
 </div>
 
-	<div data-bind="foreach: tvs">
+	<div data-bind="foreach: products" id="results">
 		<div class="well-white">
 			<div class="row">
 				<div class="col-md-3" style="margin-top: 50px;">
@@ -42,7 +42,7 @@
 			 			<span class="product-title" data-bind="'text': amount"></span>
 			 		</div>
 			 		<div class="row" style="text-align: center;">
-			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind='click:  function(tv) { $parent.cart_request(tv)}'>
+			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind='click:  function(tv) { $parent.cart_request(product)}'>
 			 		</div>
 			 	</div>
 			</div>
@@ -83,37 +83,41 @@
 	  		slider.startAuto();
 
 	  		$.ajax({
-				url : "/store/getTvs"
+				url : "/getSearchResults"
 			}).done(function(data) {
 				var status = $.parseJSON(data);
-				viewModel = ko.mapping.fromJS(status);
-				viewModel.tvs().forEach(function(tv) {
+				if(!status.result) {
+					viewModel = ko.mapping.fromJS(status);
+					viewModel.products().forEach(function(product) {
 
-					tv.image_src = ko.computed(function() {
-						return '../assets/product_images/' + tv.image();
-					}, viewModel);
+						product.image_src = ko.computed(function() {
+							return '../assets/product_images/' + product.image();
+						}, viewModel);
 
-					tv.amount = ko.computed(function() {
-						return 'Налично количество: ' + tv.qty();
-					}, viewModel);
+						product.amount = ko.computed(function() {
+							return 'Налично количество: ' + product.qty();
+						}, viewModel);
 
-					tv.price_computed = ko.computed(function() {
-						return tv.price_bgn() + ' лв';
-					}, viewModel);
-					
-				});
-
-				viewModel.cart_request = function(tv) {
-					
-					$.ajax({
-						method: "POST",
-						url: "/store/addToCart/" + tv.id(),
-						contentType: "application/json; charset=utf-8"
-					}).done(function(returnedData) {
-						window.location = "/";
+						product.price_computed = ko.computed(function() {
+							return product.price_bgn() + ' лв';
+						}, viewModel);
+						
 					});
-				};
-				ko.applyBindings(viewModel);
+
+					viewModel.cart_request = function(product) {
+						
+						$.ajax({
+							method: "POST",
+							url: "/store/addToCart/" + product.id(),
+							contentType: "application/json; charset=utf-8"
+						}).done(function(returnedData) {
+							window.location = "/";
+						});
+					};
+					ko.applyBindings(viewModel);
+				} else {
+					$('#results').empty();
+				}
 			});
 		});
 	</script>		
