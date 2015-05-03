@@ -134,6 +134,9 @@ class ProductController extends BaseController {
 		
 		$filter = Input::get('query');
 		$products = DB::connection('mysql')->select('select * from Products where name like "%' . $filter . '%"');
+		if($filter == '') {
+			$products = null;
+		}
 		$key = 'search';
 		
 		if (Cache::has($key)) {
@@ -152,7 +155,7 @@ class ProductController extends BaseController {
 		
 		if (Cache::has($key)) {
 			$products = Cache::get($key);
-			if (count($products) == 0) {
+			if (count($products) == 0 || $products == null) {
 				$this->status ['result'] = 1;
 				return json_encode($this->status);
 			} else {

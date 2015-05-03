@@ -29,27 +29,27 @@
 				<fieldset>
 					<br/>
 					<div class="form-group">
-							 <label for="name">Name</label>
+							 <label for="name">Име</label>
 							 <input type="text" class="form-control input" id="name" placeholder="" data-bind="value: name">
 					</div>
 					<div class="form-group">
-							 <label for="address">Address</label>
+							 <label for="address">Адрес</label>
 							 <input type="text" class="form-control input" id="address" placeholder="" data-bind="value: address">
 					</div>
 					<div class="form-group">
-							 <label for="email">E-mail</label>
+							 <label for="email">Имейл</label>
 							 <input type="email" class="form-control input" id="email" placeholder="" data-bind="value: email">
 					</div>
 					<div class="form-group">
-							 <label for="password">Password (At least 8 chars)</label>
+							 <label for="password">Парола</label>
 							 <input type="password" class="form-control input" id="password" placeholder="" data-bind="value: password">
 					</div>
 					<div class="form-group">
-							 <label for="repeatPassword">Repeat password</label>
+							 <label for="repeatPassword">Повтори парола</label>
 							 <input type="password" class="form-control input" id="repeatPassword" placeholder="" data-bind="value: repeatPassword">
 					</div>
 					<div>
-						<input type="button" class="btn btn-primary" value="Register" data-bind='click: register'>
+						<input type="button" class="btn btn-primary" value="Регистрирай се" data-bind='click: register'>
 					</div>
 				</fieldset>
 				</form>
@@ -82,21 +82,36 @@
 	  		viewModel = {
 	  		  		
 	  				name: ko.observable()
-							.extend({required: true}),
+							.extend({required: {
+								params: true,
+								message: "Задължително поле"
+					        }}),
 
 					address: ko.observable()
-							.extend({required: true}),		
+							.extend({required: {
+								params: true,
+								message: "Задължително поле"
+					        }}),		
 
 					email: ko.observable()
-							.extend({required: true})
+							.extend({required: {
+								params: true,
+								message: "Задължително поле"
+					        }})
 							.extend({pattern: {params: '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$', message: "Please enter valid email"}}),
 
 					password: ko.observable()
-							.extend({required: true})
+							.extend({required: {
+								params: true,
+								message: "Задължително поле"
+					        }})
 							.extend({pattern: {params: '^([a-zA-Z0-9]{8,})$', message: "Please enter at least 8 chars"}}),
 							
 					repeatPassword: ko.observable()
-							.extend({required: true})
+							.extend({required: {
+								params: true,
+								message: "Задължително поле"
+					        }})
 							.extend({pattern: {params: '^([a-zA-Z0-9]{8,})$', message: "Please enter at least 8 chars"}}),
 
 					validateFields : function(){

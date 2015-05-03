@@ -43,16 +43,15 @@
 					</div>
 					<div class="row" style="margin-left: 140px;">
 						<input id="buy" name="submit" type="submit" class="btn btn-primary" value="Купи" id="">
-						<a id="enter" href="/login">.. или влез в профила си</a>
 					</div>
 					<input type="hidden" name="cmd" value="_xclick">
                     <input type="hidden" name="business" value="webteck-facilitator@abv.bg">
                     <input type="hidden" name="item_name" value="Webteck online store">
                     <input type="hidden" name="currency_code" value="EUR">
                     <input type="hidden" name="amount" data-bind="value: amount"> 
-                    <input type="hidden" name="notify_url" value="http://78.83.53.112/notify">
-                    <input type="hidden" name="return" value="http://78.83.53.112/return">
-                    <input type="hidden" name="cancel_return" value="http://78.83.53.112/return">
+                    <input type="hidden" name="notify_url" data-bind="value: notify_url">
+                    <input type="hidden" name="return" data-bind="value: return_url">
+                    <input type="hidden" name="cancel_return" data-bind="value: return_url">
 				</fieldset>
 				</form>
 			</div>
@@ -86,12 +85,10 @@
 				url : "/user/getDetails/"
 			}).done(function(data) {
 				var status = $.parseJSON(data);
-				if ( !status.result ) {
-					viewModel = ko.mapping.fromJS(status);
-					ko.applyBindings(viewModel);
-					$('#enter').hide();
-					$('#buy').css('margin-right', '160px');
-				}
+				viewModel = ko.mapping.fromJS(status);
+				ko.applyBindings(viewModel);
+// 				$('#enter').hide();
+				$('#buy').css('margin-right', '160px');
 		});
 		});
 	</script>	

@@ -164,18 +164,19 @@ class UserController extends BaseController {
 		$this->loginFlag = true;
 		
 		if (Auth::user() != null) {
-			$this->status['result'] = 0;
 			$this->status['name'] = Auth::user()->name;
 			$this->status['address'] = Auth::user()->address;
 			$this->status['email'] = Auth::user()->email;
-			$this->status['amount'] = Session::get('amount')[0] * 0.5;
-			
-			return json_encode($this->status);
 		} else {
-			$this->status['result'] = 1;
-			return json_encode($this->status);
+			$this->status['name'] = '';
+			$this->status['address'] = '';
+			$this->status['email'] = '';
 		}
-		
+			
+			$this->status['amount'] = Session::get('amount')[0] * 0.5;
+			$this->status['notify_url'] = Config::get('settings.localhost') . 'notify';
+			$this->status['return_url'] = Config::get('settings.localhost') . 'return';
+			return json_encode($this->status);		
 	}
 	
 	public function account() {

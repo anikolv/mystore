@@ -29,18 +29,18 @@
 				<fieldset>
 					<br/>
 					<div class="form-group">
-							 <label for="email">E-mail</label>
+							 <label for="email">Имейл</label>
 							 <input type="email" class="form-control input" id="email" placeholder="" data-bind="value: email">
 					</div>
 					<div class="form-group">
-							 <label for="password">Password</label>
+							 <label for="password">Парола</label>
 							 <input type="password" class="form-control input" id="password" placeholder="" data-bind="value: password">
 					</div>
 					<div class="button-checkbox" style="margin-bottom: 20px;">
-						<input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="" data-bind="checked: remember"> Remember me
+						<input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="" data-bind="checked: remember"> Запомни ме
 					</div>
 					<div>
-						<input type="button" class="btn btn-primary" value="Login" data-bind='click: login'>
+						<input type="button" class="btn btn-primary" value="Влез" data-bind='click: login'>
 					</div>
 				</fieldset>
 				</form>
@@ -73,11 +73,17 @@
 	  		viewModel = {
 	  		  			
 					email: ko.observable()
-							.extend({required: true})
+							.extend({required: {
+								params: true,
+								message: "Задължително поле"
+					        }})
 							.extend({pattern: {params: '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$', message: "Please enter valid email"}}),
 
 					password: ko.observable()
-							.extend({required: true})
+							.extend({required: {
+								params: true,
+								message: "Задължително поле"
+					        }})
 							.extend({pattern: {params: '^([a-zA-Z0-9]{8,})$', message: "Please enter at least 8 chars"}}),
 
 					remember: ko.observable(true),

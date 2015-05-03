@@ -83,7 +83,10 @@ class CartController extends BaseController {
 	
 	public function notify() {
 		
-		Log::info("ZASHTO NE VLIZASH");
+		if( Input::get('payment_status') == 'Pending' || Input::get('payment_status') == 'Completed' ) {
+			Log::info("ORDER STATUS: " . Input::get('payment_status'));
+			
+		}
 		
 	}
 }

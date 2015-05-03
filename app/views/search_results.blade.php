@@ -42,7 +42,7 @@
 			 			<span class="product-title" data-bind="'text': amount"></span>
 			 		</div>
 			 		<div class="row" style="text-align: center;">
-			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind='click:  function(tv) { $parent.cart_request(product)}'>
+			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind='click:  function(product) { $parent.cart_request(product)}'>
 			 		</div>
 			 	</div>
 			</div>

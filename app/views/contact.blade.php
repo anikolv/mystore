@@ -74,15 +74,24 @@
 	  		viewModel = {
 	  		  		
 	  				name: ko.observable()
-							.extend({required: true}),
+							.extend({required: {
+								params: true,
+								message: "Задължително поле"
+					        }}),
 	
 
 					email: ko.observable()
-							.extend({required: true})
+							.extend({required: {
+								params: true,
+								message: "Задължително поле"
+					        }})
 							.extend({pattern: {params: '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$', message: "Please enter valid email"}}),
 
 					message: ko.observable()
-							.extend({required: true}),
+							.extend({required: {
+								params: true,
+								message: "Задължително поле"
+					        }}),
 
 					validateFields : function(){
 								this.errors = ko.validation.group([this.name, this.email, this.message]);
