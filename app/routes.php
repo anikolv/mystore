@@ -38,6 +38,7 @@ Route::get('/getAccount', 'UserController@getAccount');
 Route::post('/changeAccount', 'UserController@changeAccount');
 Route::post('/search', 'ProductController@search');
 Route::get('/getSearchResults', 'ProductController@getSearchResults');
+Route::get('/flushSession/', 'HomeController@flushSession');
 
 Route::group(array('before' => 'auth'), function() {
 	

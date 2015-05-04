@@ -82,15 +82,21 @@
 	  			$('#loading-indicator').hide();
 	  		});
 
+	  		$( "#buy" ).click(function() {
+	  			$.ajax({
+					url : "/flushSession/"
+				}).done(function(data) {
+				});
+	  		});
+
 	  		$.ajax({
 				url : "/user/getDetails/"
 			}).done(function(data) {
 				var status = $.parseJSON(data);
 				viewModel = ko.mapping.fromJS(status);
 				ko.applyBindings(viewModel);
-// 				$('#enter').hide();
 				$('#buy').css('margin-right', '160px');
-		});
+			});
 		});
 	</script>	
 @stop

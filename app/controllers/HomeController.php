@@ -61,5 +61,9 @@ class HomeController extends BaseController {
 		return json_encode($this->status);
 	
 	}
+	
+	public function flushSession() {
+		Session::flush();
+	}
 
 }
