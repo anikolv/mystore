@@ -84,8 +84,20 @@ class CartController extends BaseController {
 	public function notify() {
 		
 		if( Input::get('payment_status') == 'Pending' || Input::get('payment_status') == 'Completed' ) {
-			Log::info("ORDER STATUS: " . Input::get('payment_status'));
 			
+			$cartId = Input::get('item_number');
+
+			$cart = Cart::find($cartId);
+			$cart->status = 'ПЛАТЕНА';
+			$cart->save();
+			
+			$products = DB::connection('mysql')->select('select product_id from carts_products where cart_id = ?', array($cartId));
+			foreach( $products as $product ) {
+				$pr = Product::find($product->product_id);
+				$pr->qty = $pr->qty - 1;
+				$pr->save(); 
+			}
+			Session::flush();
 		}
 		
 	}

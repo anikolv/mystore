@@ -87,7 +87,7 @@ class CartProductController extends BaseController {
 			
 			$products_count = 0;
 			$amount = 0;
-			$cart = Cart::create(['status' => 'NEW',
+			$cart = Cart::create(['status' => 'НОВА',
 								   'cost' => $product->price_bgn
 								]);
 

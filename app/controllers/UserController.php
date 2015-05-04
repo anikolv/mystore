@@ -161,8 +161,6 @@ class UserController extends BaseController {
 	
 	public function getDetails() {
 		
-		$this->loginFlag = true;
-		
 		if (Auth::user() != null) {
 			$this->status['name'] = Auth::user()->name;
 			$this->status['address'] = Auth::user()->address;
@@ -176,6 +174,7 @@ class UserController extends BaseController {
 			$this->status['amount'] = Session::get('amount')[0] * 0.5;
 			$this->status['notify_url'] = Config::get('settings.localhost') . 'notify';
 			$this->status['return_url'] = Config::get('settings.localhost') . 'return';
+			$this->status['orderid'] = Session::get('cart');
 			return json_encode($this->status);		
 	}
 	

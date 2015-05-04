@@ -47,6 +47,7 @@
 					<input type="hidden" name="cmd" value="_xclick">
                     <input type="hidden" name="business" value="webteck-facilitator@abv.bg">
                     <input type="hidden" name="item_name" value="Webteck online store">
+                    <input type="hidden" name="item_number" data-bind="value: orderid">
                     <input type="hidden" name="currency_code" value="EUR">
                     <input type="hidden" name="amount" data-bind="value: amount"> 
                     <input type="hidden" name="notify_url" data-bind="value: notify_url">
