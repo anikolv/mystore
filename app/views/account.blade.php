@@ -13,8 +13,8 @@
 
 <div class="row">
 		<div class="col-md-11">
-			<div id="legend">
-					<legend style="padding-right: 120px;">
+			<div id="legend" style="margin-right: 60px;">
+					<legend>
 						Потребителски акаунт
 					</legend>
 			</div>
@@ -49,9 +49,9 @@
 			</div>
 		</div>
 	</div>
-	<div id="auth_failed" class="alert alert-info" role="alert" style="margin-right: 50px;margin-top: 300px">
+	<div id="auth_failed" class="alert alert-info" role="alert" style="margin-right: 50px;margin-top: 120px;display: block;width: 700px;margin-left: 60px;"">
 	</div>
-	<div>
+	<div style="margin-top: 120px;">
 		<img src="../assets/images/apple_ipad_mini.jpg" style="margin-right: 150px;width: 700px;margin-bottom: 100px;border: groove;"/>
 	</div>
 	
@@ -105,7 +105,7 @@
 					};
 					ko.applyBindings(viewModel);
 				} else {
-					$('#auth_failed').html('Не сте в профила си!');
+					$('#auth_failed').html('Не сте в профила си !');
 					$('.well').hide();
 					$('#auth_failed').show();
 				}
