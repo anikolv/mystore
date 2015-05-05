@@ -113,7 +113,7 @@
 	    
 	<footer class="footer">
  		<div class="col-md-6" style="text-align: left;margin-top: 15px;">
- 			<span class="ftlabel">&copy; 2015</span>
+ 			<span class="ftlabel">Webteck &copy; 2015</span>
  		</div>
  		<div class="col-md-6" style="text-align: right;">
  			<img src="../assets/images/banks.png" style="height: 50px;">

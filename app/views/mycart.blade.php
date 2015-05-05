@@ -15,7 +15,7 @@
 <div class="row">
 		<div class="col-md-11">
 			<div id="legend">
-					<legend style="padding-right: 120px;">
+					<legend>
 						Количка
 					</legend>
 			</div>
@@ -48,7 +48,7 @@
 	<span class="product-price" data-bind="'text': discount_comp, 'visible': total() >= 1000" style="font-size: 20px;"></span>
 </div>
 
-<div id="empty_cart" class="alert alert-info" role="alert" style="margin-right: 50px;margin-top: 300px">
+<div id="empty_cart" class="alert alert-info" role="alert" style="margin-right: 50px;">
 </div>
 
 <div class="row" style="margin-bottom:100px">
