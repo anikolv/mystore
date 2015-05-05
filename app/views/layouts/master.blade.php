@@ -48,7 +48,7 @@
                     			<a href="#">Потребителски панел</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="/" id="phones"></img>Телефони</a>
+                    			<a href="/" id="phones"></img>@lang('user_panel.phones')</a>
                 			</li>
                				 <li class="myli">
                     			<a href="/store/tablets" id="tablets">Таблети</a>

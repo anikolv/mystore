@@ -45,7 +45,7 @@ html, body
 
 .myli {
 	border-color: white;
-    border: groove;
+    border: inset;
 }
 
 .btn-blue {
