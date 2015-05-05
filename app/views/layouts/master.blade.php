@@ -100,6 +100,9 @@
                				 <li class="myli">
                     			<a href="adminOrders" id="orders">Поръчки</a>
                 			</li>
+                			<div style="margin-top: 100px;">
+                				<img src="../assets/images/admin_icon.png" id="" />
+                			</div>
             			</ul>
         			</div>
          		</div>

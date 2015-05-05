@@ -49,8 +49,8 @@
 	</div>
 </div>
 <div class="row" style="text-align: left; padding-left: 15px;margin-bottom:40px;">
-	<input type="button" class="btn btn-primary" value="Add" id='add'>
-	<input type="button" class="btn btn-primary" value="Remove" id='remove'>
+	<input type="button" class="btn btn-primary" value="Добави" id='add'>
+	<input type="button" class="btn btn-primary" value="Премахни" id='remove'>
 	<input type="button" class="btn btn-primary" value="Modify" id='modify'>
 </div>
 
@@ -59,27 +59,27 @@
 		<form enctype="multipart/form-data">
 			<fieldset>
 				<div class="form-group">
-					 <label for="name">Name</label>
+					 <label for="name">Име</label>
 				 	<input type="text" class="form-control input" id="name" placeholder="" data-bind="value: name">
 				</div>
 				<div class="form-group">
-					 <label for="address">Address</label>
+					 <label for="address">Адрес</label>
 				 	 <textarea class="form-control" rows="3" placeholder="User address..." data-bind="value: address" required></textarea>
 				</div>
 				<div class="form-group">
-					 <label for="email">Email</label>
+					 <label for="email">Имейл</label>
 				 	 <input type="text" class="form-control input" id="email" placeholder="" data-bind="value: email">
 				</div>
 				<div class="form-group">
-					 <label for="address">Password</label>
+					 <label for="address">Парола</label>
 				 	<input type="password" class="form-control input" id="password" placeholder="" data-bind="value: password">
 				</div>
 				<div class="form-group">
-					 <label for="role">Role</label>
+					 <label for="role">Роля</label>
 					 <br>
 				 	<select class="form-control input" data-bind="value: role">
-				 		<option value='1'>User</option>
-				 		<option value='2'>Admin</option>
+				 		<option value='1'>Потребител</option>
+				 		<option value='2'>Администратор</option>
 					</select>
 				</div>
 				<div style="text-align: center;" id="add_user">
@@ -223,7 +223,7 @@
 		          var r, row, c, d = data.users,
 		          total = data.count,
 
-		          headers = ["No", "Created at", "Name", "Address", "Email", "Role"],
+		          headers = ["Номер", "Създаден", "Име", "Адрес", "Имейл", "Роля"],
 				  rows = [],
 		          len = d.length;
 		          for ( r=0; r < len; r++ ) {

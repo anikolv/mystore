@@ -58,6 +58,11 @@
 		</div>
 	</div>
 </div>
+
+<div class="row" style="margin-right: 170px;"><br>
+		* Поръчки със статус "ПЛАТЕНА" са успешно платени от потребителя и трябва да бъдат доставени на адреса <br><br>
+		* При липса на данни за платена поръчка (адрес, име, продукти), моля свържете се с потребителя на посочения имейл
+	</div>
 @stop
 
 @section('scripts')
@@ -101,10 +106,10 @@
 						data: JSON.stringify({ id: selectedIndex }),
 						contentType: "application/json; charset=utf-8"
 					}).done(function(returnedData) {
+						$('#cart_products').html('');
 						var status = $.parseJSON(returnedData);
 						for (i = 0; i < status.products.length; i++) { 
-							console.log('test');
-						    $('#cart_products').append(status.products[i].name);
+						    $('#cart_products').append(status.products[i].name + "<br>");
 						    $('.well').show();
 						}
 					});
@@ -143,7 +148,7 @@
 		          var r, row, c, d = data.orders,
 		          total = data.count,
 
-		          headers = ["No", "Created at", "Customer Name", "Customer Address", "Amount", "Status"],
+		          headers = ["Номер", "Създаден", "Име", "Адрес", "Сума", "Статус"],
 				  rows = [],
 		          len = d.length;
 		          for ( r=0; r < len; r++ ) {
