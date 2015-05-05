@@ -16,7 +16,7 @@
 		<div class="col-md-11">
 			<div id="legend" style="margin-right: 60px;">
 					<legend>
-						Количка
+						@lang("user_panel.cart")
 					</legend>
 			</div>
 		</div>
@@ -102,7 +102,7 @@
 				var status = $.parseJSON(data);
 				if ( status.result ) {
 					$('#products').hide();
-					$('#empty_cart').html('Вашата количка е празна !');
+					$('#empty_cart').html('@lang("user_panel.empty_cart")');
 					$('#empty_cart').show();
 				} else {
 					$('#empty_cart').hide();

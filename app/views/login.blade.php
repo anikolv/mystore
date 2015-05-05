@@ -29,18 +29,18 @@
 				<fieldset>
 					<br/>
 					<div class="form-group">
-							 <label for="email">Имейл</label>
+							 <label for="email">@lang('user_panel.email')</label>
 							 <input type="email" class="form-control input" id="email" placeholder="" data-bind="value: email">
 					</div>
 					<div class="form-group">
-							 <label for="password">Парола</label>
+							 <label for="password">@lang('user_panel.pass')</label>
 							 <input type="password" class="form-control input" id="password" placeholder="" data-bind="value: password">
 					</div>
 					<div class="button-checkbox" style="margin-bottom: 20px;">
-						<input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="" data-bind="checked: remember"> Запомни ме
+						<input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="" data-bind="checked: remember"> @lang('user_panel.remember')
 					</div>
 					<div>
-						<input type="button" class="btn btn-primary" value="Влез" data-bind='click: login'>
+						<input type="button" class="btn btn-primary" value="@lang('user_panel.enter')" data-bind='click: login'>
 					</div>
 				</fieldset>
 				</form>

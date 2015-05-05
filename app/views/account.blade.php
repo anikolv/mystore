@@ -15,7 +15,7 @@
 		<div class="col-md-11">
 			<div id="legend" style="margin-right: 60px;">
 					<legend>
-						Потребителски акаунт
+						@lang("user_panel.account")
 					</legend>
 			</div>
 		</div>
@@ -30,15 +30,15 @@
 				<fieldset>
 					<br/>
 					<div class="form-group">
-							 <label for="name">Име</label>
+							 <label for="name">@lang("user_panel.name")</label>
 							 <input type="text" class="form-control input" id="name" placeholder="" data-bind="value: name" name="first_name">
 					</div>
 					<div class="form-group">
-							 <label for="address">Адрес</label>
+							 <label for="address">@lang("user_panel.address")</label>
 							 <input type="text" class="form-control input" id="address" placeholder="" data-bind="value: address" name="address1">
 					</div>
 					<div class="form-group">
-							 <label for="email">Имейл</label>
+							 <label for="email">@lang("user_panel.email")</label>
 							 <input type="email" class="form-control input" id="email" placeholder="" data-bind="value: email" name="email">
 					</div>
 					<div class="row" style="margin-left: 140px;">
@@ -105,7 +105,7 @@
 					};
 					ko.applyBindings(viewModel);
 				} else {
-					$('#auth_failed').html('Не сте в профила си !');
+					$('#auth_failed').html('@lang("user_panel.not_profile")');
 					$('.well').hide();
 					$('#auth_failed').show();
 				}

@@ -42,7 +42,7 @@
 			 			<span class="product-title" data-bind="'text': amount"></span>
 			 		</div>
 			 		<div class="row" style="text-align: center;">
-			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind='click:  function(phone) { $parent.cart_request(phone)}'>
+			 			<input type="button" class="btn btn-primary" value="@lang('user_panel.add_cart')" data-bind='click:  function(phone) { $parent.cart_request(phone)}'>
 			 		</div>
 			 	</div>
 			</div>
@@ -94,7 +94,7 @@
 					}, viewModel);
 
 					phone.amount = ko.computed(function() {
-						return 'Налично количество: ' + phone.qty();
+						return "@lang('user_panel.available')" + ': ' + phone.qty();
 					}, viewModel);
 
 					phone.price_computed = ko.computed(function() {

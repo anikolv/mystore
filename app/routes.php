@@ -39,7 +39,7 @@ Route::post('/changeAccount', 'UserController@changeAccount');
 Route::post('/search', 'ProductController@search');
 Route::get('/getSearchResults', 'ProductController@getSearchResults');
 Route::get('/flushSession/', 'HomeController@flushSession');
-Route::get('language/{lang}', 'HomeController@selectLang');
+Route::get('/language/{lang}', 'HomeController@selectLang');
 
 Route::group(array('before' => 'auth'), function() {
 	

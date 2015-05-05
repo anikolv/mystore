@@ -15,7 +15,7 @@
 <div class="row">
 		<div class="col-md-11">
 			<legend style="padding-right: 120px;">
-						Телевизори
+						@lang('user_panel.tvs')
 			</legend>
 		</div>
 		<div class="col-md-1">
@@ -42,7 +42,7 @@
 			 			<span class="product-title" data-bind="'text': amount"></span>
 			 		</div>
 			 		<div class="row" style="text-align: center;">
-			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind='click:  function(tv) { $parent.cart_request(tv)}'>
+			 			<input type="button" class="btn btn-primary" value="@lang('user_panel.add_cart')" data-bind='click:  function(tv) { $parent.cart_request(tv)}'>
 			 		</div>
 			 	</div>
 			</div>
@@ -94,7 +94,7 @@
 					}, viewModel);
 
 					tv.amount = ko.computed(function() {
-						return 'Налично количество: ' + tv.qty();
+						return '@lang("user_panel.available")' + ': ' + tv.qty();
 					}, viewModel);
 
 					tv.price_computed = ko.computed(function() {

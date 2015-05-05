@@ -15,7 +15,7 @@
 <div class="row">
 		<div class="col-md-11">
 			<legend style="padding-right: 120px;">
-						Лаптопи
+						@lang('user_panel.notebooks')
 			</legend>
 		</div>
 		<div class="col-md-1">
@@ -42,7 +42,7 @@
 			 			<span class="product-title" data-bind="'text': amount"></span>
 			 		</div>
 			 		<div class="row" style="text-align: center;">
-			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind='click:  function(notebook) { $parent.cart_request(notebook)}'>
+			 			<input type="button" class="btn btn-primary" value="@lang('user_panel.add_cart')" data-bind='click:  function(notebook) { $parent.cart_request(notebook)}'>
 			 		</div>
 			 	</div>
 			</div>
@@ -95,7 +95,7 @@
 					}, viewModel);
 
 					notebook.amount = ko.computed(function() {
-						return 'Налично количество: ' + notebook.qty();
+						return "@lang('user_panel.available')" + ': ' + notebook.qty();
 					}, viewModel);
 
 					notebook.price_computed = ko.computed(function() {

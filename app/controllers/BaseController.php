@@ -31,8 +31,8 @@ class BaseController extends Controller {
 								    ' . trans('user_panel.lang') . ' <span class="caret"></span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
-								    <li><a href="language/bg">Български <img src="../assets/images/bgflag.png"</a></li>
-								    <li><a href="language/en">English &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
+								    <li><a href="/language/bg">Български <img src="../assets/images/bgflag.png"</a></li>
+								    <li><a href="/language/en">English &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
 								  </ul>
 								</div>
 								<span style="color:#497AE4;"> Здравей, ' . Auth::user()->name . ' </span>
@@ -58,8 +58,8 @@ class BaseController extends Controller {
 								    ' . trans('user_panel.lang') . ' <span class="caret"></span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
-								    <li><a href="language/bg">Български <img src="../assets/images/bgflag.png"</a></li>
-								    <li><a href="language/en">English &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
+								    <li><a href="/language/bg">Български <img src="../assets/images/bgflag.png"</a></li>
+								    <li><a href="/language/en">English &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
 								  </ul>
 								</div>
 								<a class="" href="/login" title="' . trans('user_panel.login') . '"><img src="../assets/images/login.png" style="height: 40px;"/></a>

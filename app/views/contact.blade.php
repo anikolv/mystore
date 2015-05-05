@@ -14,7 +14,7 @@
 		<div class="col-md-11">
 			<div id="legend">
 					<legend style="padding-right: 120px;">
-						Контакт
+						@lang("user_panel.contact")
 					</legend>
 			</div>
 		</div>
@@ -29,15 +29,15 @@
 				<fieldset>
 					<br/>
 					<div class="form-group">
-							 <label for="name">Име</label>
+							 <label for="name">@lang("user_panel.name")</label>
 							 <input type="text" class="form-control input" id="name" placeholder="" data-bind="value: name">
 					</div>
 					<div class="form-group">
-							 <label for="email">Имейл</label>
+							 <label for="email">@lang("user_panel.email")</label>
 							 <input type="email" class="form-control input" id="email" placeholder="" data-bind="value: email">
 					</div>
 					<div class="form-group">
-							 <label for="password">Съобщение</label>
+							 <label for="password">@lang("user_panel.message")</label>
 							 <textarea class="form-control" rows="3" placeholder="Напишете вашето съобщение.." data-bind="value: message" required></textarea>
 					</div>
 					<div>
