@@ -36,14 +36,23 @@ class BaseController extends Controller {
 								<a class="" href="/" title="Home"><img src="../assets/images/test2.png" style="height: 50px;"/></a>
 							</div>
 							<div class="col-md-6" style="margin-top: 7px;">
-								<div class="input-group">
-						            <input type="text" class="form-control" placeholder="Търси продукти..." id="query" name="query" value="">
-							            <div class="input-group-btn">
-						            <button type="submit" class="btn btn-blue"><span class="glyphicon glyphicon-search"></span></button>
-						            </div>
-						        </div>
+								<form method="post" action="/search" style="display: flex;">
+						            	<input type="text" class="form-control" placeholder="Търси продукти..." id="query" name="query" value="">
+							         	<div class="input-group-btn">
+						            		<button type="submit" class="btn btn-blue"><span class="glyphicon glyphicon-search"></span></button>
+						            	</div>
+								</form>
 							</div>
 							<div class="col-md-3" style="text-align: right;padding-right: 40px;">
+								<div class="btn-group">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="margin-right: 40px;">
+								    Език <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" role="menu">
+								    <li><a href="#">Български</a></li>
+								    <li><a href="#">English</a></li>
+								  </ul>
+								</div>
 								<a class="" href="/login" title="Login"><img src="../assets/images/login.png" style="height: 40px;"/></a>
 									&nbsp;&nbsp;&nbsp;
 								<a class="" href="/register" title="Register"><img src="../assets/images/registereduser.png" style="height: 50px;;"/></a>
