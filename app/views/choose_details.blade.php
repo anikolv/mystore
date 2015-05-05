@@ -58,6 +58,9 @@
 			</div>
 		</div>
 	</div>
+	<div>
+		<img src="../assets/images/mybaner.jpg" style="margin-right: 150px;width: 700px;margin-bottom: 100px;border: groove;"/>
+	</div>
 	
 @stop
 
@@ -84,7 +87,8 @@
 
 	  		$( "#buy" ).click(function() {
 	  			$.ajax({
-					url : "/flushSession/"
+					url : "/flushSession/",
+					data: { name: $('#name').val(), address : $('#address').val() } 
 				}).done(function(data) {
 				});
 	  		});

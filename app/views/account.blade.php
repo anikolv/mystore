@@ -52,8 +52,8 @@
 	<div id="auth_failed" class="alert alert-info" role="alert" style="margin-right: 50px;margin-top: 300px">
 	</div>
 	<div>
-	<img src="../assets/images/discount.jpg" style="margin-right: 120px;width: 700px;margin-bottom: 100px;border: groove;"/>
-</div>
+		<img src="../assets/images/apple_ipad_mini.jpg" style="margin-right: 150px;width: 700px;margin-bottom: 100px;border: groove;"/>
+	</div>
 	
 	
 @stop

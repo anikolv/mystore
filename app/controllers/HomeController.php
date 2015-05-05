@@ -63,6 +63,9 @@ class HomeController extends BaseController {
 	}
 	
 	public function flushSession() {
+		CartDetails::create(['cartid' => Session::get('cart')[0],
+    						 'name'   => Input::get('name'),
+                           	 'address'  => Input::get('address')]);
 		Session::flush();
 	}
 
