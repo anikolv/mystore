@@ -23,6 +23,7 @@ class CartProductController extends BaseController {
 				if ( !empty($cart_products) ) {
 					
 					$this->status ['result'] = 0;
+					$this->status ['total'] = Session::get('amount')[0];
 					$this->status ['products'] = $cart_products;
 					return json_encode($this->status);
 					

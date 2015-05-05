@@ -28,28 +28,21 @@
 <div id="products" data-bind="foreach: products">
 		<div class="well-white">
 			<div class="row">
-				<div class="col-md-3">
-					<img class="image-small" alt=""  data-bind="attr: { src: image_src }">
+				<div class="col-md-3" style="margin-right: 60px;">
+					<span class="product-title" data-bind="'text': name"></span>
 				</div>
-				<div class="col-md-4" style="margin-right: 60px;">
-					<div class="row" style="margin-bottom: 40px;">
-						<span class="product-title" data-bind="'text': name"></span>
-					</div>
-					<div class="row">
-						<span class="" data-bind="'text': description" style="color: black;font-size:20px;"></span>
-					</div>
+				<div class=col-md-3 style="margin-right: 70px;">
+					<span class="product-price" data-bind="'text': price_computed"></span>
 				</div>
 			 	<div class="col-md-4">
-			 		<div class="row" style="text-align: center;margin-top: 90px;">
-			 			<input type="button" class="btn btn-primary" value="Премахни от количка" data-bind='click:  function(product) { $parent.remove_product(product)}'>
-			 		</div>
+			 		<input type="button" class="btn btn-primary" value="Премахни от количката" data-bind='click:  function(product) { $parent.remove_product(product)}'>
 			 	</div>
 			</div>
-			<div class="row">
-				<span class="product-price" data-bind="'text': price_computed"></span>
-			</div>
 		</div>
-	</div>
+</div>
+<div class="row" style="text-align: right;padding-right: 300px;margin-bottom: 40px;">
+	<span class="product-price" data-bind="'text': total" style="font-size: 20px;"></span>
+</div>
 
 	<div id="empty_cart" class="alert alert-info" role="alert" style="margin-right: 50px;margin-top: 300px">
 	</div>
@@ -117,6 +110,9 @@
 						}, viewModel);
 						
 					});
+					viewModel.total = ko.computed(function() {
+						return 'Обща цена: ' + viewModel.total() + ' лв';
+					}, viewModel);
 
 					viewModel.remove_product = function(product) {
 						
