@@ -33,7 +33,7 @@
 					<div class="row" style="margin-bottom: 40px;">
 						<span class="product-title" data-bind="'text': name"></span>
 					</div>
-					<div class="row">
+					<div class="row" style="font-style: oblique;font-family: -webkit-pictograph;">
 						<span class="" data-bind="'text': description" style="color: black;font-size:20px;"></span>
 					</div>
 				</div>
