@@ -69,16 +69,16 @@
                     			<a href="/contact">Контакти</a>
                 			</li>
                 				<div class="slider8">	
-  									<div class="slide"><img src="http://ausdroid.net/wp-content/uploads/2015/01/Aldi-Medion-4.5-22-smartphone-banner.jpg"></div>
-  									<div class="slide"><img src="http://thumbs.dreamstime.com/x/deals-smartphone-shows-online-offers-bargains-promotions-showing-38118776.jpg"></div>
-  									<div class="slide"><img src="http://ausdroid.net/wp-content/uploads/2015/01/Aldi-Medion-4.5-22-smartphone-banner.jpg"></div>
-  									<div class="slide"><img src="http://thumbs.dreamstime.com/x/deals-smartphone-shows-online-offers-bargains-promotions-showing-38118776.jpg"></div>
-  									<div class="slide"><img src="http://ausdroid.net/wp-content/uploads/2015/01/Aldi-Medion-4.5-22-smartphone-banner.jpg"></div>
- 								    <div class="slide"><img src="http://thumbs.dreamstime.com/x/deals-smartphone-shows-online-offers-bargains-promotions-showing-38118776.jpg"></div>
-  									<div class="slide"><img src="http://ausdroid.net/wp-content/uploads/2015/01/Aldi-Medion-4.5-22-smartphone-banner.jpg"></div>
-  									<div class="slide"><img src="http://thumbs.dreamstime.com/x/deals-smartphone-shows-online-offers-bargains-promotions-showing-38118776.jpg"></div>
-  									<div class="slide"><img src="http://ausdroid.net/wp-content/uploads/2015/01/Aldi-Medion-4.5-22-smartphone-banner.jpg"></div>
-  									<div class="slide"><img src="http://thumbs.dreamstime.com/x/deals-smartphone-shows-online-offers-bargains-promotions-showing-38118776.jpg"></div>
+  									<div class="slide"><img src="../assets/images/slide1.jpg"></div>
+  									<div class="slide"><img src="../assets/images/slide2.jpg"></div>
+  									<div class="slide"><img src="../assets/images/slide3.png"></div>
+  									<div class="slide"><img src="../assets/images/slide4.jpg"></div>
+  									<div class="slide"><img src="../assets/images/slide5.jpg"></div>
+ 								    <div class="slide"><img src="../assets/images/slide6.jpg"></div>
+  									<div class="slide"><img src="../assets/images/slide7.jpg"></div>
+  									<div class="slide"><img src="../assets/images/slide8.jpg"></div>
+  									<div class="slide"><img src="../assets/images/slide9.jpg"></div>
+  									<div class="slide"><img src="../assets/images/slide10.jpg"></div>
 								</div>
             			</ul>
         			</div>
