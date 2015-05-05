@@ -26,6 +26,15 @@ class BaseController extends Controller {
 						        ' : '') .
 							'</div>
 							<div class="col-md-4" style="text-align: right;padding-right: 40px;">
+									<div class="btn-group">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="margin-right: 40px;">
+								    Език <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" role="menu">
+								    <li><a href="#">Български <img src="../assets/images/bgflag.png"</a></li>
+								    <li><a href="#">English &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
+								  </ul>
+								</div>
 								<span style="color:#497AE4;"> Здравей, ' . Auth::user()->name . ' </span>
 								&nbsp;	
 								&nbsp;
@@ -49,8 +58,8 @@ class BaseController extends Controller {
 								    Език <span class="caret"></span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
-								    <li><a href="#">Български</a></li>
-								    <li><a href="#">English</a></li>
+								    <li><a href="#">Български <img src="../assets/images/bgflag.png"</a></li>
+								    <li><a href="#">English &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
 								  </ul>
 								</div>
 								<a class="" href="/login" title="Login"><img src="../assets/images/login.png" style="height: 40px;"/></a>
