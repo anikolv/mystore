@@ -45,28 +45,28 @@
         			<div id="sidebar-wrapper">
             			<ul class="sidebar-nav">
                 			<li class="sidebar-brand">
-                    			<a href="#">Потребителски панел</a>
+                    			<a href="#">@lang('user_panel.user_panel')</a>
                 			</li>
                 			<li class="myli">
                     			<a href="/" id="phones"></img>@lang('user_panel.phones')</a>
                 			</li>
                				 <li class="myli">
-                    			<a href="/store/tablets" id="tablets">Таблети</a>
+                    			<a href="/store/tablets" id="tablets">@lang('user_panel.tablets')</a>
                				 </li>
                				 <li class="myli">
-                    			<a href="/store/notebooks" id="notebooks">Лаптопи</a>
+                    			<a href="/store/notebooks" id="notebooks">@lang('user_panel.notebooks')</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="/store/tvs" id="tvs">Телевизори</a>
+                    			<a href="/store/tvs" id="tvs">@lang('user_panel.tvs')</a>
                 			</li>
                 			<li class="myli">
-                   				 <a href="/store/mycart" id="mycart">Количка {{ '( ' }} {{ Session::get('products_amount')[0]; }} {{ ' )' }}</a>
+                   				 <a href="/store/mycart" id="mycart">@lang('user_panel.cart') {{ '( ' }} {{ Session::get('products_amount')[0]; }} {{ ' )' }}</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="/account">Потребителски акаунт</a>
+                    			<a href="/account">@lang('user_panel.account')</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="/contact">Контакти</a>
+                    			<a href="/contact">@lang('user_panel.contact')</a>
                 			</li>
                 				<div class="slider8">	
   									<div class="slide"><img src="../assets/images/slide1.jpg"></div>

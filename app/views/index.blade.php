@@ -15,7 +15,7 @@
 <div class="row">
 		<div class="col-md-11">
 			<legend style="padding-right: 120px;">
-						Телефони
+						@lang('user_panel.phones')
 			</legend>
 		</div>
 		<div class="col-md-1">
