@@ -116,13 +116,18 @@ class CartProductController extends BaseController {
 
 		$cartId = Session::get('cart');
 		$products_count = Session::get('products_amount')[0];
-		Log::info(Session::get('products_amount'));
+		$amount = Session::get('amount')[0];
+		$product = Product::find($productId);
 		
 		DB::connection('mysql')->delete('delete from carts_products where cart_id = ? and product_id = ? limit 1', array($cartId[0], $productId));
 		
 		$products_count = $products_count - 1;
 		Session::forget('products_amount');
 		Session::push('products_amount', $products_count);
+		
+		$amount = $amount - $product->price_bgn;
+		Session::forget('amount');
+		Session::push('amount', $amount);
 		
 	}
 }

@@ -31,7 +31,7 @@
 				<div class="col-md-3" style="margin-right: 60px;">
 					<span class="product-title" data-bind="'text': name"></span>
 				</div>
-				<div class=col-md-3 style="margin-right: 70px;">
+				<div class=col-md-3 style="margin-right: 50px;">
 					<span class="product-price" data-bind="'text': price_computed"></span>
 				</div>
 			 	<div class="col-md-4">
@@ -41,14 +41,23 @@
 		</div>
 </div>
 <div class="row" style="text-align: right;padding-right: 300px;margin-bottom: 40px;">
-	<span class="product-price" data-bind="'text': total" style="font-size: 20px;"></span>
+	<span class="product-price" data-bind="'text': total_comp" style="font-size: 20px;"></span>
 </div>
 
-	<div id="empty_cart" class="alert alert-info" role="alert" style="margin-right: 50px;margin-top: 300px">
-	</div>
-	<div class="row" style="margin-bottom:100px">
-		<input id="go" type="button" class="btn btn-success" value="Купи" style="width: 200px;margin-right: 150px;">
-	</div>
+<div class="row" style="text-align: right;padding-right: 300px;margin-bottom: 40px;">
+	<span class="product-price" data-bind="'text': discount_comp, 'visible': total() >= 1000" style="font-size: 20px;"></span>
+</div>
+
+<div id="empty_cart" class="alert alert-info" role="alert" style="margin-right: 50px;margin-top: 300px">
+</div>
+
+<div class="row" style="margin-bottom:100px">
+	<input id="go" type="button" class="btn btn-success" value="Купи" style="width: 200px;margin-right: 150px;">
+</div>
+
+<div>
+	<img src="../assets/images/discount.jpg" style="margin-right: 120px;width: 700px;margin-bottom: 100px;border: groove;"/>
+</div>
 
 
 @stop
@@ -110,9 +119,23 @@
 						}, viewModel);
 						
 					});
+
+					viewModel.discount = ko.computed(function() {
+						return viewModel.total() * 0.1;
+					}, viewModel);
+
+					viewModel.discount_comp = ko.computed(function() {
+						return " Отстъпка: " + viewModel.discount().toFixed(2) + " лв";
+					}, viewModel);
+
 					viewModel.total = ko.computed(function() {
+						return viewModel.total();
+					}, viewModel);
+					
+					viewModel.total_comp = ko.computed(function() {
 						return 'Обща цена: ' + viewModel.total() + ' лв';
 					}, viewModel);
+
 
 					viewModel.remove_product = function(product) {
 						
