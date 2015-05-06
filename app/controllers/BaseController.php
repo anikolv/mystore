@@ -44,7 +44,7 @@ class BaseController extends Controller {
 			$login_info .= '<div class="col-md-3" style="text-align: left; padding-left: 40px; ">
 								<a class="" href="/" title="Home"><img src="../assets/images/test2.png" style="height: 50px;"/></a>
 							</div>
-							<div class="col-md-6" style="margin-top: 7px;">
+							<div class="col-md-5" style="margin-top: 7px;">
 								<form method="post" action="/search" style="display: flex;">
 						            	<input type="text" class="form-control" placeholder="' . trans("user_panel.search") . '" id="query" name="query" value="">
 							         	<div class="input-group-btn">
@@ -52,7 +52,16 @@ class BaseController extends Controller {
 						            	</div>
 								</form>
 							</div>
-							<div class="col-md-3" style="text-align: right;padding-right: 40px;">
+							<div class="col-md-4" style="text-align: right;padding-right: 40px;">
+						            			<div class="btn-group">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="margin-right: 40px;">
+								    ' . trans('user_panel.currency') . ' <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" role="menu">
+								    <li><a href="">BGN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/bgflag.png"</a></li>
+								    <li><a href="">USD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
+								  </ul>
+								</div>
 								<div class="btn-group">
 								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="margin-right: 40px;">
 								    ' . trans('user_panel.lang') . ' <span class="caret"></span>

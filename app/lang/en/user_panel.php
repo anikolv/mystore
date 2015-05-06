@@ -40,7 +40,8 @@ return array(
 	"required" => 'Required filed',
 	"vaid_mail" => 'Please enter valid email',
 	"chards" => 'Please enter at least 8 characters',
-	"found" => 'Search results:'
+	"found" => 'Search results:',
+	"currency" => 'Currency'
 );
 
 
