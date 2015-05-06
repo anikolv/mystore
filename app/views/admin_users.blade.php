@@ -49,8 +49,8 @@
 	</div>
 </div>
 <div class="row" style="text-align: left; padding-left: 15px;margin-bottom:40px;">
-	<input type="button" class="btn btn-primary" value="Добави" id='add'>
-	<input type="button" class="btn btn-primary" value="Премахни" id='remove'>
+	<input type="button" class="btn btn-primary" value="@lang('admin_panel.add')" id='add'>
+	<input type="button" class="btn btn-primary" value="@lang('admin_panel.remove')" id='remove'>
 	<input type="button" class="btn btn-primary" value="Modify" id='modify'>
 </div>
 
@@ -59,31 +59,31 @@
 		<form enctype="multipart/form-data">
 			<fieldset>
 				<div class="form-group">
-					 <label for="name">Име</label>
+					 <label for="name">@lang('user_panel.name')</label>
 				 	<input type="text" class="form-control input" id="name" placeholder="" data-bind="value: name">
 				</div>
 				<div class="form-group">
-					 <label for="address">Адрес</label>
+					 <label for="address">@lang('user_panel.address')</label>
 				 	 <textarea class="form-control" rows="3" placeholder="User address..." data-bind="value: address" required></textarea>
 				</div>
 				<div class="form-group">
-					 <label for="email">Имейл</label>
+					 <label for="email">@lang('user_panel.email')</label>
 				 	 <input type="text" class="form-control input" id="email" placeholder="" data-bind="value: email">
 				</div>
 				<div class="form-group">
-					 <label for="address">Парола</label>
+					 <label for="address">@lang('user_panel.password')</label>
 				 	<input type="password" class="form-control input" id="password" placeholder="" data-bind="value: password">
 				</div>
 				<div class="form-group">
-					 <label for="role">Роля</label>
+					 <label for="role">@lang('admin_panel.role')</label>
 					 <br>
 				 	<select class="form-control input" data-bind="value: role">
-				 		<option value='1'>Потребител</option>
-				 		<option value='2'>Администратор</option>
+				 		<option value='1'>@lang('admin_panel.user')</option>
+				 		<option value='2'>@lang('admin_panel.admin')</option>
 					</select>
 				</div>
 				<div style="text-align: center;" id="add_user">
-					<input type="button" class="btn btn-primary" value="Add" data-bind='click: add'>
+					<input type="button" class="btn btn-primary" value="@lang('admin_panel.add')" data-bind='click: add'>
 				</div>
 			</fieldset>
 		</form>
@@ -238,7 +238,7 @@
 		          var r, row, c, d = data.users,
 		          total = data.count,
 
-		          headers = ["Номер", "Създаден", "Име", "Адрес", "Имейл", "Роля"],
+		          headers = ["@lang('admin_panel.number')", "@lang('admin_panel.created')", "@lang('user_panel.name')", "@lang('user_panel.address')", "@lang('user_panel.email')", "@lang('admin_panel.role')"],
 				  rows = [],
 		          len = d.length;
 		          for ( r=0; r < len; r++ ) {

@@ -48,8 +48,8 @@
 </div>
 
 <div class="row" style="text-align: left; padding-left: 15px;margin-bottom:40px;">
-	<input type="button" class="btn btn-primary" value="Add" id='add'>
-	<input type="button" class="btn btn-primary" value="Remove" id='remove'>
+	<input type="button" class="btn btn-primary" value="@lang('admin_panel.add')" id='add'>
+	<input type="button" class="btn btn-primary" value="@lang('admin_panel.remove')" id='remove'>
 	<input type="button" class="btn btn-primary" value="Modify" id='modify'>
 </div>
 
@@ -58,35 +58,35 @@
 		<form enctype="multipart/form-data">
 			<fieldset>
 				<div class="form-group">
-					 <label for="name">Name</label>
+					 <label for="name">@lang('user_panel.name')</label>
 				 	<input type="text" class="form-control input" id="name" placeholder="" data-bind="value: name">
 				</div>
 				<div class="form-group">
-					 <label for="description">Description</label>
+					 <label for="description">@lang('admin_panel.description')</label>
 				 	 <textarea class="form-control" rows="3" placeholder="Product description..." data-bind="value: description" required></textarea>
 				</div>
 				<div class="form-group">
-					 <label for="category">Category</label>
+					 <label for="category">@lang('admin_panel.category')</label>
 					 <br>
 				 	<select class="form-control input" data-bind="value: category">
-				 		<option value='1'>Phones</option>
-				 		<option value='2'>Tablets</option>
-				 		<option value='3'>Notebooks</option>
-				 		<option value='4'>TVs</option>
+				 		<option value='1'>@lang('user_panel.phones')</option>
+				 		<option value='2'>@lang('user_panel.tablets')</option>
+				 		<option value='3'>@lang('user_panel.notebooks')</option>
+				 		<option value='4'>@lang('user_panel.tvs')</option>
 					</select>
 				</div>
 				<div class="form-group">
-					 <label for="name">Price</label>
+					 <label for="name">@lang('admin_panel.price')</label>
 				 	<input type="text" class="form-control input" id="price" placeholder="" data-bind="value: price">
 				</div>
 				<div class="form-group">
-					 <label for="description">Qty</label>
+					 <label for="description">@lang('admin_panel.amount')</label>
 					 <input type="text" class="form-control input" id="qty" placeholder="" data-bind="value: qty">		</div>
 				<div class="form-group" id="image_div">
-					 <label for="name">Image</label>
+					 <label for="name">@lang('admin_panel.image')</label>
 				 	 <div style="position:relative;">
 						<a class='btn btn-primary' href='javascript:;'>
-						Choose File...
+						@lang('admin_panel.choose_file')
 						<input type="file" class="file-input" name="file_source" size="40"  onchange=''>
 						</a>
 						&nbsp;
@@ -94,7 +94,7 @@
 					 </div>
 				</div>
 				<div style="text-align: center;" id="add_product">
-					<input type="button" class="btn btn-primary" value="Add" data-bind='click: add'>
+					<input type="button" class="btn btn-primary" value="@lang('admin_panel.add')" data-bind='click: add'>
 				</div>
 				<div style="text-align: center;" id="modify_product">
 					<input type="button" class="btn btn-primary" value="Modify" data-bind='click: modify'>
@@ -275,7 +275,7 @@
 		          var r, row, c, d = data.products,
 		          total = data.count,
 
-		          headers = ["Номер", "Име", "Категория", "Цена", "Количество"],
+		          headers = ["@lang('admin_panel.number')", "@lang('user_panel.name')", "@lang('admin_panel.category')", "@lang('admin_panel.price')", "@lang('admin_panel.amount')"],
 				  rows = [],
 		          len = d.length;
 		          for ( r=0; r < len; r++ ) {

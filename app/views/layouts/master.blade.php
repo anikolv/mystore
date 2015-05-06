@@ -89,16 +89,16 @@
         			<div id="sidebar-wrapper">
             			<ul class="sidebar-nav">
                 			<li class="sidebar-brand">
-                    			<a href="#">Админ панел</a>
+                    			<a href="#">@lang('admin_panel.admin_panel')</a>
                 			</li>
                 			<li class="myli">
-                    			<a href="adminUsers" id="users">Потребители</a>
+                    			<a href="adminUsers" id="users">@lang('admin_panel.users')</a>
                 			</li>
                				 <li class="myli">
-                    			<a href="adminProducts" id="products">Продукти</a>
+                    			<a href="adminProducts" id="products">@lang('admin_panel.products')</a>
                				 </li>
                				 <li class="myli">
-                    			<a href="adminOrders" id="orders">Поръчки</a>
+                    			<a href="adminOrders" id="orders">@lang('admin_panel.orders')</a>
                 			</li>
                 			<div style="margin-top: 100px;">
                 				<img src="../assets/images/admin_icon.png" id="" />

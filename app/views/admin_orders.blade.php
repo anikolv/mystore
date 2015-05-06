@@ -51,7 +51,7 @@
 <div class="well">
 	<div class="row" style="text-align: left; padding-left: 15px;">
 		<div class="row">
-			Продукти:
+			@lang('admin_panel.products'):
 		</div>
 		<br>
 		<div class="row" id="cart_products">
@@ -60,8 +60,8 @@
 </div>
 
 <div class="row" style="margin-right: 170px;"><br>
-		* Поръчки със статус "ПЛАТЕНА" са успешно платени от потребителя и трябва да бъдат доставени на адреса <br><br>
-		* При липса на данни за платена поръчка (адрес, име, продукти), моля свържете се с потребителя на посочения имейл
+		* @lang('admin_panel.point1') <br><br>
+		* @lang('admin_panel.point2')
 	</div>
 @stop
 
@@ -148,7 +148,7 @@
 		          var r, row, c, d = data.orders,
 		          total = data.count,
 
-		          headers = ["Номер", "Създаден", "Име", "Адрес", "Сума", "Статус"],
+		          headers = ["@lang('admin_panel.number')", "@lang('admin_panel.created')", "@lang('user_panel.name')", "@lang('user_panel.address')", "@lang('admin_panel.amount')", "@lang('admin_panel.status')"],
 				  rows = [],
 		          len = d.length;
 		          for ( r=0; r < len; r++ ) {
