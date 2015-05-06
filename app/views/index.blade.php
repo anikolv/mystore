@@ -86,6 +86,7 @@
 				url : "store/getPhones"
 			}).done(function(data) {
 				var status = $.parseJSON(data);
+				console.log(status.currency)
 				viewModel = ko.mapping.fromJS(status);
 				viewModel.phones().forEach(function(phone) {
 
@@ -98,7 +99,7 @@
 					}, viewModel);
 
 					phone.price_computed = ko.computed(function() {
-						return phone.price_bgn() + ' лв';
+						return phone.price_bgn() + " " + status.currency;
 					}, viewModel);
 					
 				});

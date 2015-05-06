@@ -70,8 +70,8 @@ class BaseController extends Controller {
 								    	' . trans('user_panel.currency') . ' <span class="caret"></span>
 								  		</button>
 								  		<ul class="dropdown-menu" role="menu">
-								    		<li><a href="">BGN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/bgflag.png"</a></li>
-								    		<li><a href="">USD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
+								    		<li><a href="/currency/BGN">BGN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/bgflag.png"</a></li>
+								    		<li><a href="/currency/USD">USD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
 								  		</ul>
 								</div>
 								    			

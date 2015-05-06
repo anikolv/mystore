@@ -40,6 +40,7 @@ Route::post('/search', 'ProductController@search');
 Route::get('/getSearchResults', 'ProductController@getSearchResults');
 Route::get('/flushSession/', 'HomeController@flushSession');
 Route::get('/language/{lang}', 'HomeController@selectLang');
+Route::get('/currency/{id}', 'HomeController@selectCurr');
 
 Route::group(array('before' => 'auth'), function() {
 	

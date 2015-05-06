@@ -32,6 +32,13 @@ class HomeController extends BaseController {
 		return Redirect::to('/');
 	}
 	
+	public function selectCurr($id){
+		
+		Session::put('currency', $id);
+	
+		return Redirect::to('/');
+	}
+	
 	public function chooseDetails() {
 	
 		return View::make('choose_details');

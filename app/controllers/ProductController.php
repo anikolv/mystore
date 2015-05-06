@@ -96,6 +96,7 @@ class ProductController extends BaseController {
 		
 		$this->status ['result'] = 0;
 		$this->status ['phones'] = $phones;
+		$this->status ['currency'] = Session::get('currency');
 		return json_encode($this->status);
 		
 	}
