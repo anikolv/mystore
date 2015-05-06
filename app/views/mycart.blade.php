@@ -44,7 +44,7 @@
 	<span class="product-price" data-bind="'text': total_comp" style="font-size: 20px;"></span>
 </div>
 
-<div class="row" style="text-align: right;padding-right: 300px;margin-bottom: 40px;">
+<div class="row" style="display:none;text-align: right;padding-right: 300px;margin-bottom: 40px;" data-bind="'visible': bgn_total() >= 1000">
 	<span class="product-price" data-bind="'text': discount_comp, 'visible': bgn_total() >= 1000" style="font-size: 20px;"></span>
 	<hr style="border-top:1px solid #0B0808">
 	<span class="product-price" data-bind="'text': final_price ,'visible': bgn_total() >= 1000" style="font-size: 20px;"></span>
