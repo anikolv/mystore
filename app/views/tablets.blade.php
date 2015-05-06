@@ -99,7 +99,7 @@
 					}, viewModel);
 
 					tablet.price_computed = ko.computed(function() {
-						return tablet.price_bgn() + ' лв';
+						return tablet.price_bgn() + " " + status.currency;
 					}, viewModel);
 					
 				});

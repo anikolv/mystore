@@ -107,9 +107,16 @@ class ProductController extends BaseController {
 	public function getTablets() {
 	
 		$tablets = DB::connection('mysql')->select('select * from Products where category = 2 and qty > 0');
+		
+		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+			foreach($tablets as $tablet) {
+				$tablet->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $tablet->price_bgn), 2, '.', '');;
+			}
+		}
 			
 		$this->status ['result'] = 0;
 		$this->status ['tablets'] = $tablets;
+		$this->status ['currency'] = (Session::get('currency') == null ? 'BGN' : Session::get('currency'));
 		return json_encode($this->status);
 	
 	}
@@ -117,9 +124,16 @@ class ProductController extends BaseController {
 	public function getNotebooks() {
 	
 		$notebooks = DB::connection('mysql')->select('select * from Products where category = 3 and qty > 0');
+		
+		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+			foreach($notebooks as $notebook) {
+				$notebook->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $notebook->price_bgn), 2, '.', '');;
+			}
+		}
 			
 		$this->status ['result'] = 0;
 		$this->status ['notebooks'] = $notebooks;
+		$this->status ['currency'] = (Session::get('currency') == null ? 'BGN' : Session::get('currency'));
 		return json_encode($this->status);
 	
 	}
@@ -127,9 +141,16 @@ class ProductController extends BaseController {
 	public function getTvs() {
 	
 		$tvs = DB::connection('mysql')->select('select * from Products where category = 4 and qty > 0');
+		
+		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+			foreach($tvs as $tv) {
+				$tv->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $tv->price_bgn), 2, '.', '');;
+			}
+		}
 			
 		$this->status ['result'] = 0;
 		$this->status ['tvs'] = $tvs;
+		$this->status ['currency'] = (Session::get('currency') == null ? 'BGN' : Session::get('currency'));
 		return json_encode($this->status);
 	
 	}

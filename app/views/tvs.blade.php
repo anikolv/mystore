@@ -98,7 +98,7 @@
 					}, viewModel);
 
 					tv.price_computed = ko.computed(function() {
-						return tv.price_bgn() + ' лв';
+						return tv.price_bgn() + " " + status.currency;
 					}, viewModel);
 					
 				});
