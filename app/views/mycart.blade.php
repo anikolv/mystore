@@ -45,7 +45,7 @@
 </div>
 
 <div class="row" style="text-align: right;padding-right: 300px;margin-bottom: 40px;">
-	<span class="product-price" data-bind="'text': discount_comp, 'visible': total() >= 1000" style="font-size: 20px;"></span>
+	<span class="product-price" data-bind="'text': discount_comp, 'visible': bgn_total() >= 1000" style="font-size: 20px;"></span>
 </div>
 
 <div id="empty_cart" class="alert alert-info" role="alert" style="margin-right: 50px; display: block;width: 700px;margin-left: 60px;">
@@ -115,7 +115,7 @@
 						}, viewModel);
 
 						product.price_computed = ko.computed(function() {
-							return product.price_bgn() + ' лв';
+							return product.price_bgn() + " " +  status.currency;
 						}, viewModel);
 						
 					});
@@ -125,7 +125,7 @@
 					}, viewModel);
 
 					viewModel.discount_comp = ko.computed(function() {
-						return "@lang('user_panel.discount')" + ": " + viewModel.discount().toFixed(2) + " лв";
+						return "@lang('user_panel.discount')" + ": " + viewModel.discount().toFixed(2) + " " +  status.currency;
 					}, viewModel);
 
 					viewModel.total = ko.computed(function() {
@@ -133,7 +133,7 @@
 					}, viewModel);
 					
 					viewModel.total_comp = ko.computed(function() {
-						return "@lang('user_panel.total')" + ': ' + viewModel.total() + ' лв';
+						return "@lang('user_panel.total')" + ': ' + viewModel.total() + " " + status.currency;
 					}, viewModel);
 
 

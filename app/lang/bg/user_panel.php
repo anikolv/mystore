@@ -3,7 +3,7 @@
 return array(
 
 	"user_panel" => "Потребителски панел",
-	"phones" => "Телефони",
+	"phones" => "Смартфони",
 	"tablets" => "Таблети",
 	"notebooks" => "Лаптопи",
 	"tvs" => "Телевизори",

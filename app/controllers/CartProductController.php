@@ -22,9 +22,20 @@ class CartProductController extends BaseController {
 				
 				if ( !empty($cart_products) ) {
 					
+					$total = Session::get('amount')[0];
+					$bgn_total = Session::get('amount')[0];
+					if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+						$total = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $total), 2, '.', '');
+					foreach($cart_products as $cart_product) {
+						$cart_product->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $cart_product->price_bgn), 2, '.', '');;
+						}
+					}
+					
 					$this->status ['result'] = 0;
-					$this->status ['total'] = Session::get('amount')[0];
+					$this->status ['total'] = $total;
+					$this->status ['bgn_total'] = $bgn_total;
 					$this->status ['products'] = $cart_products;
+					$this->status ['currency'] = (Session::get('currency') == null ? 'BGN' : Session::get('currency'));
 					return json_encode($this->status);
 					
 				} else {
