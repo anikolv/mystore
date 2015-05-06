@@ -172,7 +172,7 @@ class UserController extends BaseController {
 		}
 			
 			$amount = ( Session::get('amount')[0] >= 1000 ? Session::get('amount')[0] - (Session::get('amount')[0] * 0.1) : Session::get('amount')[0]);
-			$this->status['amount'] = $amount * 0.5;
+			$this->status['amount'] = number_format((float)$this->convertCurrency('BGN', 'EUR', $amount), 2, '.', '');
 			$this->status['notify_url'] = Config::get('settings.localhost') . 'notify';
 			$this->status['return_url'] = Config::get('settings.localhost') . 'return';
 			$this->status['orderid'] = Session::get('cart');
