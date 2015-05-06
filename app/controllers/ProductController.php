@@ -1,7 +1,5 @@
 <?php
-
 class ProductController extends BaseController {
-
 	public function getProducts() {
 		
 		$page = (int)Request::query('page');
@@ -65,7 +63,6 @@ class ProductController extends BaseController {
 	}
 	
 	public function removeProduct() {
-
  		$product = Product::find(Input::get('id'));
  		$product->delete();
  		
@@ -94,9 +91,15 @@ class ProductController extends BaseController {
 		
 		$phones = DB::connection('mysql')->select('select * from Products where category = 1 and qty > 0');
 		
+		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+			foreach($phones as $phone) {
+				$phone->price_bgn = $this->convertCurrency('BGN', Session::get('currency'), $phone->price_bgn);
+			}
+		}
+		
 		$this->status ['result'] = 0;
 		$this->status ['phones'] = $phones;
-		$this->status ['currency'] = Session::get('currency');
+		$this->status ['currency'] = (Session::get('currency') == null ? 'BGN' : Session::get('currency'));
 		return json_encode($this->status);
 		
 	}

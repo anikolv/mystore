@@ -71,7 +71,8 @@ class BaseController extends Controller {
 								  		</button>
 								  		<ul class="dropdown-menu" role="menu">
 								    		<li><a href="/currency/BGN">BGN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/bgflag.png"</a></li>
-								    		<li><a href="/currency/USD">USD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
+								   			<li><a href="/currency/EUR">EUR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/euflag.png"</a></li>	
+								    		<li><a href="/currency/USD">USD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/usflag.gif"</a></a></li>
 								  		</ul>
 								</div>
 								    			
@@ -98,5 +99,16 @@ class BaseController extends Controller {
 		if ( ! is_null($this->layout)) {
 			$this->layout = View::make($this->layout);
 		}
+	}
+	
+	public function convertCurrency( $from, $to, $amount ) {
+	
+		$get = file_get_contents("https://www.google.com/finance/converter?a=$amount&from=$from&to=$to");
+		$get = explode("<span class=bld>",$get);
+		$get = explode("</span>",$get[1]);
+		$converted_amount = preg_replace("/[^0-9\.]/", null, $get[0]);
+	
+		return $converted_amount;
+	
 	}
 }
