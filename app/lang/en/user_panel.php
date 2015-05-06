@@ -42,7 +42,7 @@ return array(
 	"chards" => 'Please enter at least 8 characters',
 	"found" => 'Search results:',
 	"currency" => 'Currency',
-	"final_price" => 'Final price'
+	"educational" => 'This website was created with educational purposes. None of the offered products is in real availability.'
 );
 
 

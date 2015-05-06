@@ -115,10 +115,13 @@
 	</div>
 	    
 	<footer class="footer">
- 		<div class="col-md-6" style="text-align: left;margin-top: 15px;">
- 			<span class="ftlabel">Webteck &copy; 2015</span>
+ 		<div class="col-md-2" style="text-align: left;margin-top: 15px;">
+ 			<span class="ftlabel">Webteck &copy; 2015</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  		</div>
- 		<div class="col-md-6" style="text-align: right;">
+ 		<div class="col-md-8" style="margin-top: 14px;">
+ 			<span class="ftlabel">@lang('user_panel.educational')</span>
+ 		</div>
+ 		<div class="col-md-2" style="text-align: right;">
  			<img src="../assets/images/banks.png" style="height: 50px;">
  		</div>
 	</footer>
