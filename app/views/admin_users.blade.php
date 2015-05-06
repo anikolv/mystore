@@ -149,19 +149,34 @@
 		viewModel = {
   		  		
   				name: ko.observable()
-						.extend({required: true}),
+						.extend({required: {
+							params: true,
+							message: "@lang('user_panel.required')"
+				        }}),
 
 				address: ko.observable()
-						.extend({required: true}),		
+						.extend({required: {
+							params: true,
+							message: "@lang('user_panel.required')"
+				        }}),		
 
 				email: ko.observable()
-						.extend({required: true}),
+						.extend({required: {
+							params: true,
+							message: "@lang('user_panel.required')"
+				        }}),
 
 				role: ko.observable()
-						.extend({required: true}),
+						.extend({required: {
+							params: true,
+							message: "@lang('user_panel.required')"
+				        }}),
 
 				password: ko.observable()
-						.extend({required: true}),
+						.extend({required: {
+							params: true,
+							message: "@lang('user_panel.required')"
+				        }}),
 
 				validateFields : function(){
 							this.errors = ko.validation.group([this.name, this.address, this.email, this.role, this.password]);

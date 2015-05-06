@@ -38,10 +38,10 @@
 					</div>
 					<div class="form-group">
 							 <label for="password">@lang("user_panel.message")</label>
-							 <textarea class="form-control" rows="3" placeholder="Напишете вашето съобщение.." data-bind="value: message" required></textarea>
+							 <textarea class="form-control" rows="3" placeholder="@lang('user_panel.your_message')" data-bind="value: message" required></textarea>
 					</div>
 					<div>
-						<input type="button" class="btn btn-primary" value="Изпрати" data-bind='click: send'>
+						<input type="button" class="btn btn-primary" value="@lang('user_panel.send')" data-bind='click: send'>
 					</div>
 				</fieldset>
 				</form>
@@ -50,10 +50,7 @@
 	</div>
 	
 	<div class="row" style="margin-right: 170px;">
-		Адрес за контакти: България, гр. София, област София-град, жк "Сердика" бл. 12 офис 3 <br>
-		Телефон: 0885390184 <br>
-		Факс:  (+359 2) 980 11 11 <br>
-		Webteck &reg; 2015 Всички права запазени <br>
+		@lang("user_panel.my_contacts")
 	</div>
 @stop
 

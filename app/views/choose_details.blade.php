@@ -15,7 +15,7 @@
 		<div class="col-md-11">
 			<div id="legend">
 					<legend style="padding-right: 120px;">
-						Потребителски данни
+						@lang('user_panel.user_data')
 					</legend>
 			</div>
 		</div>
@@ -30,19 +30,19 @@
 				<fieldset>
 					<br/>
 					<div class="form-group">
-							 <label for="name">Име</label>
+							 <label for="name">@lang('user_panel.name')</label>
 							 <input type="text" class="form-control input" id="name" placeholder="" data-bind="value: name" name="first_name">
 					</div>
 					<div class="form-group">
-							 <label for="address">Адрес</label>
+							 <label for="address">@lang('user_panel.address')</label>
 							 <input type="text" class="form-control input" id="address" placeholder="" data-bind="value: address" name="address1">
 					</div>
 					<div class="form-group">
-							 <label for="email">Имейл</label>
+							 <label for="email">@lang('user_panel.email')</label>
 							 <input type="email" class="form-control input" id="email" placeholder="" data-bind="value: email" name="email">
 					</div>
 					<div class="row" style="margin-left: 140px;">
-						<input id="buy" name="submit" type="submit" class="btn btn-primary" value="Купи" id="">
+						<input id="buy" name="submit" type="submit" class="btn btn-primary" value="@lang('user_panel.buy')" id="">
 					</div>
 					<input type="hidden" name="cmd" value="_xclick">
                     <input type="hidden" name="business" value="webteck-facilitator@abv.bg">

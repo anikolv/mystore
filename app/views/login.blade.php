@@ -75,14 +75,14 @@
 					email: ko.observable()
 							.extend({required: {
 								params: true,
-								message: "Задължително поле"
+								message: "@lang('user_panel.required')"
 					        }})
 							.extend({pattern: {params: '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$', message: "Please enter valid email"}}),
 
 					password: ko.observable()
 							.extend({required: {
 								params: true,
-								message: "Задължително поле"
+								message: "@lang('user_panel.required')"
 					        }})
 							.extend({pattern: {params: '^([a-zA-Z0-9]{8,})$', message: "Please enter at least 8 chars"}}),
 

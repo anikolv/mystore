@@ -184,19 +184,34 @@
 		viewModel = {
 	  		  		
 	  				name: ko.observable()
-							.extend({required: true}),
+							.extend({required: {
+								params: true,
+								message: "@lang('user_panel.required')"
+					        }}),
 
 					description: ko.observable()
-							.extend({required: true}),		
+							.extend({required: {
+								params: true,
+								message: "@lang('user_panel.required')"
+					        }}),		
 
 					category: ko.observable()
-							.extend({required: true}),
+							.extend({required: {
+								params: true,
+								message: "@lang('user_panel.required')"
+					        }}),
 
 					price: ko.observable()
-							.extend({required: true}),
+							.extend({required: {
+								params: true,
+								message: "@lang('user_panel.required')"
+					        }}),
 							
 					qty: ko.observable()
-							.extend({required: true}),
+							.extend({required: {
+								params: true,
+								message: "@lang('user_panel.required')"
+					        }}),
 							
  					image: ko.observable(),
 

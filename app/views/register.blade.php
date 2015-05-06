@@ -84,35 +84,35 @@
 	  				name: ko.observable()
 							.extend({required: {
 								params: true,
-								message: "Задължително поле"
+								message: "@lang('user_panel.required')"
 					        }}),
 
 					address: ko.observable()
 							.extend({required: {
 								params: true,
-								message: "Задължително поле"
+								message: "@lang('user_panel.required')"
 					        }}),		
 
 					email: ko.observable()
 							.extend({required: {
 								params: true,
-								message: "Задължително поле"
+								message: "@lang('user_panel.required')"
 					        }})
-							.extend({pattern: {params: '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$', message: "Please enter valid email"}}),
+							.extend({pattern: {params: '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$', message: "@lang('user_panel.valid_mail')"}}),
 
 					password: ko.observable()
 							.extend({required: {
 								params: true,
-								message: "Задължително поле"
+								message: "@lang('user_panel.required')"
 					        }})
-							.extend({pattern: {params: '^([a-zA-Z0-9]{8,})$', message: "Please enter at least 8 chars"}}),
+							.extend({pattern: {params: '^([a-zA-Z0-9]{8,})$', message: "@lang('user_panel.chars')"}}),
 							
 					repeatPassword: ko.observable()
 							.extend({required: {
 								params: true,
-								message: "Задължително поле"
+								message: "@lang('user_panel.required')"
 					        }})
-							.extend({pattern: {params: '^([a-zA-Z0-9]{8,})$', message: "Please enter at least 8 chars"}}),
+							.extend({pattern: {params: '^([a-zA-Z0-9]{8,})$', message: "@lang('user_panel.chars')"}}),
 
 					validateFields : function(){
 								this.errors = ko.validation.group([this.name, this.address, this.email, this.password, this.repeatPassword]);

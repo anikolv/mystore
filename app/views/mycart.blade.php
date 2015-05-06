@@ -35,7 +35,7 @@
 					<span class="product-price" data-bind="'text': price_computed"></span>
 				</div>
 			 	<div class="col-md-4">
-			 		<input type="button" class="btn btn-primary" value="Премахни от количката" data-bind='click:  function(product) { $parent.remove_product(product)}'>
+			 		<input type="button" class="btn btn-primary" value="@lang('user_panel.remove_cart')" data-bind='click:  function(product) { $parent.remove_product(product)}'>
 			 	</div>
 			</div>
 		</div>
@@ -52,7 +52,7 @@
 </div>
 
 <div class="row" style="margin-bottom:100px">
-	<input id="go" type="button" class="btn btn-success" value="Купи" style="width: 200px;margin-right: 150px;">
+	<input id="go" type="button" class="btn btn-success" value="@lang('user_panel.buy')" style="width: 200px;margin-right: 150px;">
 </div>
 
 <div>
@@ -125,7 +125,7 @@
 					}, viewModel);
 
 					viewModel.discount_comp = ko.computed(function() {
-						return " Отстъпка: " + viewModel.discount().toFixed(2) + " лв";
+						return "@lang('user_panel.discount')" + ": " + viewModel.discount().toFixed(2) + " лв";
 					}, viewModel);
 
 					viewModel.total = ko.computed(function() {
@@ -133,7 +133,7 @@
 					}, viewModel);
 					
 					viewModel.total_comp = ko.computed(function() {
-						return 'Обща цена: ' + viewModel.total() + ' лв';
+						return "@lang('user_panel.total')" + ': ' + viewModel.total() + ' лв';
 					}, viewModel);
 
 

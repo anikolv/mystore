@@ -60,63 +60,56 @@ class CartProductController extends BaseController {
 		
 		$product = Product::where('id', '=', $productId)->first();
 		//Session::flush();
-		
-		$amount = 10;
-		$from_Currency = 'BGN';
-		$to_Currency = 'EUR';
-		$get = file_get_contents("https://www.google.com/finance/converter?a=$amount&from=$from_Currency&to=$to_Currency");
-		$get = explode("<span class=bld>",$get);
-		$get = explode("</span>",$get[1]);
-		$converted_amount = preg_replace("/[^0-9\.]/", null, $get[0]);
-		
-// 		if( null !== Session::get('cart') ) {
-			
-			
-// 			$cartId = Session::get('cart');
-// 			$products_count = Session::get('products_amount')[0];
-// 			$amount = Session::get('amount')[0];
 
-// 				$cartProduct = CartProduct::create(['cart_id' => $cartId[0],
-// 									 				'product_id' => $productId,
-// 							          				'product_cost' => $product->price_bgn,
-// 													'product_qty' => 1
-// 													]);
-				
-// 				if( isset($cartProduct) ){
-// 					$products_count++;
-// 					$amount += $product->price_bgn;
-// 				}
-// 				Session::push('cart', $cartId);
-// 				Session::forget('products_amount');
-// 				Session::push('products_amount', $products_count);
-				
-// 				Session::forget('amount');
-// 				Session::push('amount', $amount);
-// 		} else {
+		
+		if( null !== Session::get('cart') ) {
 			
-// 			$products_count = 0;
-// 			$amount = 0;
-// 			$cart = Cart::create(['status' => 'НОВА',
-// 								   'cost' => $product->price_bgn
-// 								]);
+			
+			$cartId = Session::get('cart');
+			$products_count = Session::get('products_amount')[0];
+			$amount = Session::get('amount')[0];
 
-// 			$cartProduct = CartProduct::create(['cart_id' => $cart->id,
-// 												'product_id' => $productId,
-// 												'product_cost' => $product->price_bgn,
-// 												'product_qty' => 1
-// 												]);
+				$cartProduct = CartProduct::create(['cart_id' => $cartId[0],
+									 				'product_id' => $productId,
+							          				'product_cost' => $product->price_bgn,
+													'product_qty' => 1
+													]);
+				
+				if( isset($cartProduct) ){
+					$products_count++;
+					$amount += $product->price_bgn;
+				}
+				Session::push('cart', $cartId);
+				Session::forget('products_amount');
+				Session::push('products_amount', $products_count);
+				
+				Session::forget('amount');
+				Session::push('amount', $amount);
+		} else {
 			
-// 			if( isset($cartProduct) ) {
-// 				$products_count++;
-// 				$amount = $product->price_bgn;
-// 			}
-// 			Session::push('cart', $cart->id);
-// 			Session::forget('products_amount');
-// 			Session::push('products_amount', $products_count);
+			$products_count = 0;
+			$amount = 0;
+			$cart = Cart::create(['status' => 'НОВА',
+								   'cost' => $product->price_bgn
+								]);
+
+			$cartProduct = CartProduct::create(['cart_id' => $cart->id,
+												'product_id' => $productId,
+												'product_cost' => $product->price_bgn,
+												'product_qty' => 1
+												]);
 			
-// 			Session::forget('amount');
-// 			Session::push('amount', $amount);
-// 		}		
+			if( isset($cartProduct) ) {
+				$products_count++;
+				$amount = $product->price_bgn;
+			}
+			Session::push('cart', $cart->id);
+			Session::forget('products_amount');
+			Session::push('products_amount', $products_count);
+			
+			Session::forget('amount');
+			Session::push('amount', $amount);
+		}		
 	}
 	
 	public function removeFromCart($productId) {
