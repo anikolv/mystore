@@ -15,7 +15,7 @@
 <div class="row">
 		<div class="col-md-11">
 			<legend style="padding-right: 120px;">
-						Намерени продукти
+						@lang('user_panel.found')
 			</legend>
 		</div>
 		<div class="col-md-1">
@@ -42,7 +42,7 @@
 			 			<span class="product-title" data-bind="'text': amount"></span>
 			 		</div>
 			 		<div class="row" style="text-align: center;">
-			 			<input type="button" class="btn btn-primary" value="Добави в количка" data-bind='click:  function(product) { $parent.cart_request(product)}'>
+			 			<input type="button" class="btn btn-primary" value="@lang('user_panel.add_cart')" data-bind='click:  function(product) { $parent.cart_request(product)}'>
 			 		</div>
 			 	</div>
 			</div>
@@ -95,7 +95,7 @@
 						}, viewModel);
 
 						product.amount = ko.computed(function() {
-							return 'Налично количество: ' + product.qty();
+							return "@lang('user_panel.available')" + ': ' + product.qty();
 						}, viewModel);
 
 						product.price_computed = ko.computed(function() {
