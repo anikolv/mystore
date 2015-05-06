@@ -93,7 +93,7 @@ class ProductController extends BaseController {
 		
 		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
 			foreach($phones as $phone) {
-				$phone->price_bgn = $this->convertCurrency('BGN', Session::get('currency'), $phone->price_bgn);
+				$phone->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $phone->price_bgn), 2, '.', '');;
 			}
 		}
 		
