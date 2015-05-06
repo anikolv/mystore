@@ -46,6 +46,8 @@
 
 <div class="row" style="text-align: right;padding-right: 300px;margin-bottom: 40px;">
 	<span class="product-price" data-bind="'text': discount_comp, 'visible': bgn_total() >= 1000" style="font-size: 20px;"></span>
+	<hr style="border-top:1px solid #0B0808">
+	<span class="product-price" data-bind="'text': final_price ,'visible': bgn_total() >= 1000" style="font-size: 20px;"></span>
 </div>
 
 <div id="empty_cart" class="alert alert-info" role="alert" style="margin-right: 50px; display: block;width: 700px;margin-left: 60px;">
@@ -134,6 +136,10 @@
 					
 					viewModel.total_comp = ko.computed(function() {
 						return "@lang('user_panel.total')" + ': ' + viewModel.total() + " " + status.currency;
+					}, viewModel);
+
+					viewModel.final_price = ko.computed(function() {
+						return "@lang('user_panel.final_price')" + ": " + (viewModel.total() - viewModel.discount()).toFixed(2) + " " + status.currency ;
 					}, viewModel);
 
 
