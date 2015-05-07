@@ -77,14 +77,26 @@ class CartProductController extends BaseController {
 			
 			
 			$cartId = Session::get('cart');
-			$products_count = Session::get('products_amount')[0];
-			$amount = Session::get('amount')[0];
-
+			
+			$products = DB::connection('mysql')->select('select * from carts_products cp
+												        where cp.cart_id = ?',
+													   array($cartId[0]));
+			$counter = 0;
+			foreach($products as $pro) {
+				Log::info("counter: " . $counter);
+				if($pro->product_id == $productId) $counter++;
+			}
+			
+			
+			if( $counter < $product->qty ) {
+				$products_count = Session::get('products_amount')[0];
+				$amount = Session::get('amount')[0];
+				
 				$cartProduct = CartProduct::create(['cart_id' => $cartId[0],
-									 				'product_id' => $productId,
-							          				'product_cost' => $product->price_bgn,
-													'product_qty' => 1
-													]);
+						'product_id' => $productId,
+						'product_cost' => $product->price_bgn,
+						'product_qty' => 1
+				]);
 				
 				if( isset($cartProduct) ){
 					$products_count++;
@@ -96,6 +108,8 @@ class CartProductController extends BaseController {
 				
 				Session::forget('amount');
 				Session::push('amount', $amount);
+			} 
+			
 		} else {
 			
 			$products_count = 0;

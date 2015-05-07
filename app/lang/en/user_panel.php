@@ -39,14 +39,17 @@ return array(
 	"user_data" => 'Customer details',
 	"required" => 'Required filed',
 	"valid_mail" => 'Please enter valid email',
-	"chards" => 'Please enter at least 8 characters',
+	"chars" => 'Please enter at least 8 characters',
 	"found" => 'Search results:',
 	"currency" => 'Currency',
 	"final_price" => 'Final amount',
 	"educational" => 'This website was created with educational purposes. None of the offered products is in real availability.',
 	"email_error" => 'Sending failed. Please try again later.',
 	"email_success" => 'Message sent successful !',
-	"search_failed" => 'No products found !'
+	"search_failed" => 'No products found !',
+	"pass_missmatch" => 'Passwords mismatch !',
+	"wrong_credent" => 'Wrong username or password !',
+	"register_ok" => 'Registration successful !'
 );
 
 

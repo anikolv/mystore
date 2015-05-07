@@ -14,7 +14,7 @@
 		<div class="col-md-11">
 			<div id="legend">
 				<legend style="padding-right: 120px;">
-					<img src="../assets/images/login.png" title="Register" style="height: 50px;;"/>
+					&nbsp;&nbsp;&nbsp;@lang('user_panel.login')
 				</legend>
 			</div>
 		</div>

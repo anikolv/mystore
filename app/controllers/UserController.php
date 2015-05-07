@@ -24,7 +24,7 @@ class UserController extends BaseController {
 		
 		if ($password != $repeatPassword ) {
 			$this->status["result"] = 1;
-			$this->status["message"] = 'Passwords missmatch';
+			$this->status["message"] = trans("user_panel.pass_missmatch");
 			return json_encode($this->status);
 		}
 		
@@ -39,7 +39,7 @@ class UserController extends BaseController {
 		$user->save();
 		
 		$this->status["result"] = 0;
-		$this->status["message"] = 'Registration successfull';
+		$this->status["message"] = trans("user_panel.register_ok");
 		
 		return json_encode($this->status);
 		
@@ -65,7 +65,7 @@ class UserController extends BaseController {
 			
 		} else {
 			$this->status["result"] = 1;
-			$this->status["message"] = "Wrong username or password.";
+			$this->status["message"] = trans("user_panel.wrong_credent");
 			return json_encode($this->status);
 		}
 	}
