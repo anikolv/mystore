@@ -38,11 +38,15 @@ return array(
 	"buy" => 'Buy',
 	"user_data" => 'Customer details',
 	"required" => 'Required filed',
-	"vaid_mail" => 'Please enter valid email',
+	"valid_mail" => 'Please enter valid email',
 	"chards" => 'Please enter at least 8 characters',
 	"found" => 'Search results:',
 	"currency" => 'Currency',
-	"educational" => 'This website was created with educational purposes. None of the offered products is in real availability.'
+	"final_price" => 'Final amount',
+	"educational" => 'This website was created with educational purposes. None of the offered products is in real availability.',
+	"email_error" => 'Sending failed. Please try again later.',
+	"email_success" => 'Message sent successful !',
+	"search_failed" => 'No products found !'
 );
 
 

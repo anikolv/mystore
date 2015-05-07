@@ -66,12 +66,12 @@ class HomeController extends BaseController {
 		
 		if(count(Mail::failures()) > 0) {
 			$this->status["result"] = 1;
-			$this->status["message"] = "Получи се грешка. Опитай по-късно.";
+			$this->status["message"] = trans('user_panel.email_error');
 			return json_encode($this->status);
 		}
 		
 		$this->status["result"] = 0;
-		$this->status["message"] = "Съобщението е изпратено успешно!";
+		$this->status["message"] = trans('user_panel.email_success');
 		return json_encode($this->status);
 	
 	}

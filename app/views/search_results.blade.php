@@ -51,6 +51,10 @@
 			</div>
 		</div>
 	</div>
+	
+	<div id="empty_cart" class="alert alert-info" role="alert" style="margin-right: 50px; display: block;width: 700px;margin-left: 60px;margin-top: 300px;">
+	</div>
+	
 
 
 @stop
@@ -62,6 +66,7 @@
 		var viewModel = null;
 
 		$('#tvs').addClass('liActive');
+		$('#empty_cart').hide();
 		
 		$(document).ready(function(){
 
@@ -117,6 +122,8 @@
 					ko.applyBindings(viewModel);
 				} else {
 					$('#results').empty();
+					$('#empty_cart').html("@lang('user_panel.search_failed')");
+					$('#empty_cart').show();
 				}
 			});
 		});

@@ -80,21 +80,21 @@
 	  				name: ko.observable()
 							.extend({required: {
 								params: true,
-								message: "Задължително поле"
+								message: "@lang('user_panel.required')"
 					        }}),
 	
 
 					email: ko.observable()
 							.extend({required: {
 								params: true,
-								message: "Задължително поле"
+								message: "@lang('user_panel.required')"
 					        }})
-							.extend({pattern: {params: '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$', message: "Please enter valid email"}}),
+							.extend({pattern: {params: '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$', message: "@lang('user_panel.valid_mail')"}}),
 
 					message: ko.observable()
 							.extend({required: {
 								params: true,
-								message: "Задължително поле"
+								message: "@lang('user_panel.required')"
 					        }}),
 
 					validateFields : function(){
