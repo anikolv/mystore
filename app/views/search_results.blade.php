@@ -65,7 +65,6 @@
 
 		var viewModel = null;
 
-		$('#tvs').addClass('liActive');
 		$('#empty_cart').hide();
 		
 		$(document).ready(function(){
