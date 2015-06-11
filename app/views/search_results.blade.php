@@ -103,7 +103,7 @@
 						}, viewModel);
 
 						product.price_computed = ko.computed(function() {
-							return product.price_bgn() + ' лв';
+							return product.price_bgn() + " " + status.currency;
 						}, viewModel);
 						
 					});

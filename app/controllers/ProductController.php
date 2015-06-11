@@ -159,6 +159,14 @@ class ProductController extends BaseController {
 		
 		$filter = Input::get('query');
 		$products = DB::connection('mysql')->select('select * from Products where name like "%' . $filter . '%"');
+		
+		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+			foreach($products as $product) {
+				$product->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $product->price_bgn), 2, '.', '');
+			}
+		}
+			
+		
 		if($filter == '') {
 			$products = null;
 		}
@@ -186,6 +194,7 @@ class ProductController extends BaseController {
 			} else {
 				$this->status ['result'] = 0;
 				$this->status ['products'] = $products;
+				$this->status ['currency'] = (Session::get('currency') == null ? 'BGN' : Session::get('currency'));
 				return json_encode($this->status);
 			}
 		} else {
