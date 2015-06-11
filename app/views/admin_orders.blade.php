@@ -75,6 +75,7 @@
 	$('#orders').addClass('liActive');
 
 	$('.well').hide();
+	$('#cur_div').hide();
 
 
 	$(document).ajaxStart(function() {

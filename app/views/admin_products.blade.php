@@ -116,6 +116,7 @@
 	$('.well').hide();
 	$('#remove').hide();
 	$('#modify	').hide();
+	$('#cur_div').hide();
 
 	var selectedIndex;
 

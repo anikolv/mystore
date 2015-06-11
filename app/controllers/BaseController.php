@@ -26,7 +26,7 @@ class BaseController extends Controller {
 						        ' : '') .
 							'</div>
 							<div class="col-md-5" style="text-align: right;padding-right: 40px;">
-									<div class="btn-group">
+									<div class="btn-group" id="cur_div">
 								  		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="margin-right: 40px;">
 								    	' . trans('user_panel.currency') . ' <span class="caret"></span>
 								  		</button>
@@ -66,7 +66,7 @@ class BaseController extends Controller {
 							</div>
 						            			
 							<div class="col-md-5" style="text-align: right;padding-right: 40px;">
-						          <div class="btn-group">
+						          <div class="btn-group" id="cur_div">
 								  		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="margin-right: 40px;">
 								    	' . trans('user_panel.currency') . ' <span class="caret"></span>
 								  		</button>
