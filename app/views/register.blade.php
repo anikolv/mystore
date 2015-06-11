@@ -129,7 +129,12 @@
 									}).done(function(returnedData) {
  										var status = $.parseJSON(returnedData);
 										if (status.result) $('.well').append('<div class="alert alert-danger" role="alert" style="margin-right:156px; margin-top:30px;">' + status.message + '</div>');
-										else $('.well').html('<div class="alert alert-success" role="alert" style="margin-right:156px;margin-top:30px;">' + status.message + '</div>');
+										else {
+											$('.well').html('<div class="alert alert-success" role="alert" style="margin-right:156px;margin-top:30px;">' + status.message + '</div>');
+											setTimeout(function() {
+												window.location = "/login";
+	 										}, 1000);
+										}
 									});
 								} else {
 									this.errors.showAllMessages();

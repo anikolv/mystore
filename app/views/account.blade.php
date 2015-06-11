@@ -42,7 +42,7 @@
 							 <input type="email" class="form-control input" id="email" placeholder="" data-bind="value: email" name="email">
 					</div>
 					<div class="row" style="margin-left: 140px;">
-						<input id="buy" name="submit" type="submit" class="btn btn-primary" value="Запази" id="save" data-bind='click: save' style="margin-right: 150px;">
+						<input id="buy" name="submit" type="submit" class="btn btn-primary" value="@lang('user_panel.save')" id="save" data-bind='click: save' style="margin-right: 150px;">
 					</div>
 				</fieldset>
 				</form>
@@ -98,7 +98,7 @@
 								data: data,
 								contentType: "application/json; charset=utf-8"
 							}).done(function(returnedData) {
-								$('.well').append('<div class="alert alert-success" role="alert" style="margin-right:156px; margin-top:30px;">Готово</div>');
+								$('.well').append('<div class="alert alert-success" role="alert" style="margin-right:156px; margin-top:30px;">@lang("user_panel.success")</div>');
 							});
 											
 						

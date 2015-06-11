@@ -77,7 +77,7 @@
 								params: true,
 								message: "@lang('user_panel.required')"
 					        }})
-							.extend({pattern: {params: '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$', message: "Please enter valid email"}}),
+							.extend({pattern: {params: '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$', message: "@lang('user_panel.valid_mail')"}}),
 
 					password: ko.observable()
 							.extend({required: {
@@ -108,7 +108,10 @@
  										if(!status.result && status.role == 1)
  									   	  	window.location = "/";
  										if(status.result) 
- 											$('.well').append('<div class="alert alert-danger" role="alert" style="margin-right:156px; margin-top:30px;">' + status.message + '</div>');
+ 											$('.well').append('<div id="wrong" class="alert alert-danger" role="alert" style="margin-right:156px; margin-top:30px;">' + status.message + '</div>');
+ 										setTimeout(function() {
+ 										    $('#wrong').remove();
+ 										}, 1000);
 									});
 								} else {
 									this.errors.showAllMessages();

@@ -49,7 +49,11 @@ return array(
 	"search_failed" => 'No products found !',
 	"pass_missmatch" => 'Passwords mismatch !',
 	"wrong_credent" => 'Wrong username or password !',
-	"register_ok" => 'Registration successful !'
+	"register_ok" => 'Registration successful !',
+	'hello' => 'Hello, ',
+	'success' => 'Success',
+	'save' => 'Save'
+		
 );
 
 

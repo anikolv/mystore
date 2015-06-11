@@ -12,7 +12,7 @@ class BaseController extends Controller {
 		Session::push('products_amount', 0);
 		$login_info = '';
 		if (Auth::user() != null) {
-			$login_info .= '<div class="col-md-3" style="text-align: left; padding-left: 40px; ">
+			$login_info .= '<div class="col-md-2" style="text-align: left; padding-left: 40px; ">
 								<a class="" href="/" title="Home"><img src="../assets/images/test2.png" style="height: 50px;"/></a>
 							</div>
 							<div class="col-md-5" style="margin-top: 7px;">'.
@@ -25,14 +25,15 @@ class BaseController extends Controller {
 								     </form>
 						        ' : '') .
 							'</div>
-							<div class="col-md-4" style="text-align: right;padding-right: 40px;">
+							<div class="col-md-5" style="text-align: right;padding-right: 40px;">
 									<div class="btn-group">
 								  		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="margin-right: 40px;">
 								    	' . trans('user_panel.currency') . ' <span class="caret"></span>
 								  		</button>
 								  		<ul class="dropdown-menu" role="menu">
-								    		<li><a href="">BGN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/bgflag.png"</a></li>
-								    		<li><a href="">USD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
+								    		<li><a href="/currency/BGN">BGN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/bgflag.png"</a></li>
+								   			<li><a href="/currency/EUR">EUR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/euflag.png"</a></li>	
+								    		<li><a href="/currency/USD">USD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/usflag.gif"</a></a></li>
 								  		</ul>
 								 </div>
 								    			
@@ -45,7 +46,7 @@ class BaseController extends Controller {
 								    <li><a href="/language/en">English &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/images/ukflag.jpg"</a></a></li>
 								  </ul>
 								</div>
-								<span style="color:#497AE4;"> Здравей, ' . Auth::user()->name . ' </span>
+								<span style="color:#497AE4;"> ' . trans('user_panel.hello') . Auth::user()->name . ' </span>
 								&nbsp;	
 								&nbsp;
 								<a class="" href="logout" title="Logout"><img src="../assets/images/logout.png" style="height: 40px;margin-top: 6px;"/></a>
