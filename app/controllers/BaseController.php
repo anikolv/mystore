@@ -112,4 +112,26 @@ class BaseController extends Controller {
 		return $converted_amount;
 	
 	}
+
+    protected function performGetRequest($endpoint) {
+
+        $opts = array('http' =>
+            array(
+                'method' => 'GET',
+                'header'  => 'Accept: application/xml'
+            )
+        );
+
+        $context  = stream_context_create($opts);
+
+        Log::info(">>> " . $endpoint);
+
+        $result = file_get_contents($endpoint, false, $context);
+        $xml_result = simplexml_load_string($result);
+
+        Log::info("<<< " . $xml_result->asXML());
+
+        return $xml_result;
+
+    }
 }

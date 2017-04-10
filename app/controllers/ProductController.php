@@ -89,13 +89,33 @@ class ProductController extends BaseController {
 	
 	public function getPhones() {
 		
-		$phones = DB::connection('mysql')->select('select * from Products where category = 1 and qty > 0');
-		
-		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
-			foreach($phones as $phone) {
-				$phone->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $phone->price_bgn), 2, '.', '');;
-			}
-		}
+//		$phones = DB::connection('mysql')->select('select * from Products where category = 1 and qty > 0');
+
+//        if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+//            foreach($phones as $phone) {
+//                $phone->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $phone->price_bgn), 2, '.', '');;
+//            }
+//        }
+
+        $category = 'phones';
+        $endpoint = Config::get('settings.get_products_by_category_endpoint') . $category;
+        $xml_result = $this->performGetRequest($endpoint);
+
+        $phones = array();
+        for($i = 0, $size = count($xml_result->product); $i < $size; ++$i) {
+            $product = $xml_result->product[$i];
+            $phone = new StdClass();
+            $phone->qty = (int)$product->quantity;
+            $phone->image = (string)$product->image;
+            $phone->description = (string)$product->description;
+            $phone->name = (string)$product->name;
+            if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+                $phone->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $product->price), 2, '.', '');
+            } else {
+                $phone->price_bgn = (float)$product->price;
+            }
+            $phones[] = $phone;
+        }
 		
 		$this->status ['result'] = 0;
 		$this->status ['phones'] = $phones;
@@ -106,14 +126,34 @@ class ProductController extends BaseController {
 	
 	public function getTablets() {
 	
-		$tablets = DB::connection('mysql')->select('select * from Products where category = 2 and qty > 0');
-		
-		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
-			foreach($tablets as $tablet) {
-				$tablet->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $tablet->price_bgn), 2, '.', '');;
-			}
-		}
-			
+//		$tablets = DB::connection('mysql')->select('select * from Products where category = 2 and qty > 0');
+//
+//		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+//			foreach($tablets as $tablet) {
+//				$tablet->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $tablet->price_bgn), 2, '.', '');;
+//			}
+//		}
+
+        $category = 'tablets';
+        $endpoint = Config::get('settings.get_products_by_category_endpoint') . $category;
+        $xml_result = $this->performGetRequest($endpoint);
+
+        $tablets = array();
+        for($i = 0, $size = count($xml_result->product); $i < $size; ++$i) {
+            $product = $xml_result->product[$i];
+            $tablet = new StdClass();
+            $tablet->qty = (int)$product->quantity;
+            $tablet->image = (string)$product->image;
+            $tablet->description = (string)$product->description;
+            $tablet->name = (string)$product->name;
+            if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+                $tablet->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $product->price), 2, '.', '');
+            } else {
+                $tablet->price_bgn = (float)$product->price;
+            }
+            $tablets[] = $tablet;
+        }
+
 		$this->status ['result'] = 0;
 		$this->status ['tablets'] = $tablets;
 		$this->status ['currency'] = (Session::get('currency') == null ? 'BGN' : Session::get('currency'));
@@ -123,13 +163,33 @@ class ProductController extends BaseController {
 	
 	public function getNotebooks() {
 	
-		$notebooks = DB::connection('mysql')->select('select * from Products where category = 3 and qty > 0');
-		
-		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
-			foreach($notebooks as $notebook) {
-				$notebook->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $notebook->price_bgn), 2, '.', '');;
-			}
-		}
+//		$notebooks = DB::connection('mysql')->select('select * from Products where category = 3 and qty > 0');
+//
+//		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+//			foreach($notebooks as $notebook) {
+//				$notebook->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $notebook->price_bgn), 2, '.', '');;
+//			}
+//		}
+
+        $category = 'notebooks';
+        $endpoint = Config::get('settings.get_products_by_category_endpoint') . $category;
+        $xml_result = $this->performGetRequest($endpoint);
+
+        $notebooks = array();
+        for($i = 0, $size = count($xml_result->product); $i < $size; ++$i) {
+            $product = $xml_result->product[$i];
+            $notebook = new StdClass();
+            $notebook->qty = (int)$product->quantity;
+            $notebook->image = (string)$product->image;
+            $notebook->description = (string)$product->description;
+            $notebook->name = (string)$product->name;
+            if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+                $notebook->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $product->price), 2, '.', '');
+            } else {
+                $notebook->price_bgn = (float)$product->price;
+            }
+            $notebooks[] = $notebook;
+        }
 			
 		$this->status ['result'] = 0;
 		$this->status ['notebooks'] = $notebooks;
@@ -140,13 +200,33 @@ class ProductController extends BaseController {
 	
 	public function getTvs() {
 	
-		$tvs = DB::connection('mysql')->select('select * from Products where category = 4 and qty > 0');
-		
-		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
-			foreach($tvs as $tv) {
-				$tv->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $tv->price_bgn), 2, '.', '');
-			}
-		}
+//		$tvs = DB::connection('mysql')->select('select * from Products where category = 4 and qty > 0');
+//
+//		if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+//			foreach($tvs as $tv) {
+//				$tv->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $tv->price_bgn), 2, '.', '');
+//			}
+//		}
+
+        $category = 'tvs';
+        $endpoint = Config::get('settings.get_products_by_category_endpoint') . $category;
+        $xml_result = $this->performGetRequest($endpoint);
+
+        $tvs = array();
+        for($i = 0, $size = count($xml_result->product); $i < $size; ++$i) {
+            $product = $xml_result->product[$i];
+            $tv = new StdClass();
+            $tv->qty = (int)$product->quantity;
+            $tv->image = (string)$product->image;
+            $tv->description = (string)$product->description;
+            $tv->name = (string)$product->name;
+            if( Session::get('currency') != null && Session::get('currency') != 'BGN') {
+                $tv->price_bgn = number_format((float)$this->convertCurrency('BGN', Session::get('currency'), $product->price), 2, '.', '');
+            } else {
+                $tv->price_bgn = (float)$product->price;
+            }
+            $tvs[] = $tv;
+        }
 			
 		$this->status ['result'] = 0;
 		$this->status ['tvs'] = $tvs;
