@@ -104,10 +104,18 @@ class BaseController extends Controller {
 	
 	public function convertCurrency( $from, $to, $amount ) {
 	
-		$get = file_get_contents("https://www.google.com/finance/converter?a=$amount&from=$from&to=$to");
-		$get = explode("<span class=bld>",$get);
-		$get = explode("</span>",$get[1]);
-		$converted_amount = preg_replace("/[^0-9\.]/", null, $get[0]);
+//		$get = file_get_contents("https://www.google.com/finance/converter?a=$amount&from=$from&to=$to");
+//		$get = explode("<span class=bld>",$get);
+//		$get = explode("</span>",$get[1]);
+//		$converted_amount = preg_replace("/[^0-9\.]/", null, $get[0]);
+
+        $request = new SimpleXMLElement('<request></request>');
+        $request->addChild('fromCurrency', $from);
+        $request->addChild('toCurrency', $to);
+        $request->addChild('amount', $amount);
+
+        $endpoint = Config::get('settings.convert_currency_endpoint');
+        $converted_amount = $this->performPostRequest($endpoint, $request);
 	
 		return $converted_amount;
 	
@@ -132,6 +140,28 @@ class BaseController extends Controller {
         Log::info("<<< " . $xml_result->asXML());
 
         return $xml_result;
+
+    }
+
+    protected function performPostRequest($endpoint, $request) {
+
+        $opts = array('http' =>
+            array(
+                'method'  => 'POST',
+                'header'  => array('Content-type: application/xml', 'Accept: application/xml'),
+                'content' => $request->asXML()
+            )
+        );
+
+        $context  = stream_context_create($opts);
+
+        Log::info(">>> " . $endpoint);
+        Log::info('>>> ' . $request->asXML());
+
+        $result = file_get_contents($endpoint, false, $context);
+        Log::info('<<< ' . $result);
+
+        return $result;
 
     }
 }
