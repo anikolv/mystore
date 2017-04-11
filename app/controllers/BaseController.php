@@ -137,7 +137,9 @@ class BaseController extends Controller {
         $result = file_get_contents($endpoint, false, $context);
         $xml_result = simplexml_load_string($result);
 
-        Log::info("<<< " . $xml_result->asXML());
+        if(!is_bool($xml_result)) {
+            Log::info("<<< " . $xml_result->asXML());
+        }
 
         return $xml_result;
 

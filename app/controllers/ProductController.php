@@ -54,17 +54,32 @@ class ProductController extends BaseController {
 	
 	public function addProduct() {
 		
-    	$product = Product::create(['name'       => Input::get('name'),
-    								'qty'       => Input::get('qty'),
-                           			'description'       => Input::get('description'),
-                           			'category' => Input::get('category'),
-                           			'price_bgn'      => Input::get('price'),
-    								'image' =>   Input::get('image')]);	
+//    	$product = Product::create(['name'       => Input::get('name'),
+//    								'qty'       => Input::get('qty'),
+//                           			'description'       => Input::get('description'),
+//                           			'category' => Input::get('category'),
+//                           			'price_bgn'      => Input::get('price'),
+//    								'image' =>   Input::get('image')]);
+
+        $request = new SimpleXMLElement('<product></product>');
+        $request->addChild('name', Input::get('name'));
+        $request->addChild('quantity', Input::get('qty'));
+        $request->addChild('description', Input::get('description'));
+        $request->addChild('categoryId', Input::get('category'));
+        $request->addChild('price', Input::get('price'));
+        $request->addChild('image', Input::get('image'));
+
+        $endpoint = Config::get('settings.add_product_endpoint');
+        $this->performPostRequest($endpoint, $request);
+
 	}
 	
 	public function removeProduct() {
- 		$product = Product::find(Input::get('id'));
- 		$product->delete();
+// 		$product = Product::find(Input::get('id'));
+// 		$product->delete();
+
+        $endpoint = Config::get('settings.delete_product_endpoint') . Input::get('id');
+        $this->performGetRequest($endpoint);
  		
 	}
 	

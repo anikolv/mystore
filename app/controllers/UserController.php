@@ -110,25 +110,47 @@ class UserController extends BaseController {
 		
 		$sorting = $column_name . " " . $order;
 		
-		$users = DB::connection('mysql')->select('select u.id as USER_ID, u.created_at as USER_CREATION,
-														 u.name as USER_NAME, u.address as USER_ADDRESS, u.email as USER_EMAIL,
-														 r.name as ROLE_NAME
-												  from users u
-												  left join roles r on u.role = r.id
-												  where u.active = 1
-												  order by ' . $sorting);
+//		$users = DB::connection('mysql')->select('select u.id as USER_ID, u.created_at as USER_CREATION,
+//														 u.name as USER_NAME, u.address as USER_ADDRESS, u.email as USER_EMAIL,
+//														 r.name as ROLE_NAME
+//												  from users u
+//												  left join roles r on u.role = r.id
+//												  where u.active = 1
+//												  order by ' . $sorting);
+//
+//		$count = count ( $users );
+//
+//
+//		$page_items = array ();
+//		$t = 0;
+//		foreach ( $users as $user ) {
+//			if (($t >= ($page * $rows_per_page) && $t < ($page * $rows_per_page + $rows_per_page))) {
+//				$page_items [] = $user;
+//			}
+//			$t ++;
+//		}
 
-		$count = count ( $users );
-		
-		
-		$page_items = array ();
-		$t = 0;
-		foreach ( $users as $user ) {
-			if (($t >= ($page * $rows_per_page) && $t < ($page * $rows_per_page + $rows_per_page))) {
-				$page_items [] = $user;
-			}
-			$t ++;
-		}
+        $endpoint = Config::get('settings.get_users_endpoint');
+        $xml_result = $this->performGetRequest($endpoint);
+
+        $count = count($xml_result->user);
+
+        $page_items = array ();
+        $t = 0;
+        for ( $i = 0, $size = count($xml_result->user); $i < $size; ++$i ) {
+            if (($t >= ($page * $rows_per_page) && $t < ($page * $rows_per_page + $rows_per_page))) {
+                $item = $xml_result->user[$i];
+                $user = new StdClass();
+                $user->USER_ID = (int)$item->id;
+                $user->USER_CREATION = (string)$item->createdAt;
+                $user->USER_NAME = (string)$item->name;
+                $user->USER_ADDRESS = (string)$item->address;
+                $user->USER_EMAIL = (string)$item->email;
+                $user->ROLE_NAME = (string)$item->role->name;
+                $page_items [] = $user;
+            }
+            $t++;
+        }
 		
 		$this->status ['result'] = 0;
 		$this->status ['users'] = $page_items;
@@ -139,22 +161,37 @@ class UserController extends BaseController {
 	
 	public function addUser() {
 				
-		$user = new User;
-		$user->email = Input::get('email');
-		$user->name = Input::get('name');
-		$user->address = Input::get('address');
-		$user->password = Hash::make(Input::get('password'));
-		$user->active = 1;
-		$user->role = Input::get('role');
-		
-		$user->save();
+//		$user = new User;
+//		$user->email = Input::get('email');
+//		$user->name = Input::get('name');
+//		$user->address = Input::get('address');
+//		$user->password = Hash::make(Input::get('password'));
+//		$user->active = 1;
+//		$user->role = Input::get('role');
+
+        //        $user->save();
+
+
+        $request = new SimpleXMLElement('<user></user>');
+        $request->addChild('email', Input::get('email'));
+        $request->addChild('name', Input::get('name'));
+        $request->addChild('address', Input::get('address'));
+        $request->addChild('password', Hash::make(Input::get('password')));
+        $request->addChild('active', true);
+        $request->addChild('roleId', Input::get('role'));
+
+        $endpoint = Config::get('settings.add_user_endpoint');
+        $this->performPostRequest($endpoint, $request);
 		
 	}
 	
 	public function removeUser() {
-	
-		$user = User::find(Input::get('id'));
-		$user->delete();
+
+        $endpoint = Config::get('settings.delete_user_endpoint') . Input::get('id');
+        $this->performGetRequest($endpoint);
+
+//		$user = User::find(Input::get('id'));
+//		$user->delete();
 			
 	
 	}

@@ -127,6 +127,7 @@
 					data: JSON.stringify({ id: selectedIndex }),
 					contentType: "application/json; charset=utf-8"
 				}).done(function(returnedData) {
+				    	console.log('+++++');
 						location.href = 'adminUsers';
 				});
 			}

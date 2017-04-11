@@ -30,26 +30,51 @@ class CartController extends BaseController {
 			$order = (Request::query('col[5]') == '0' ? 'asc' : 'desc');
 		} 
 		
-		$sorting = $column_name . " " . $order;
-		
-		$orders = DB::connection('mysql')->select('select c.id as CART_ID, c.created_at as CART_CREATION, cd.name as CUSTOMER_NAME, 
-												  cd.address as CUSTOMER_ADDRESS, c.cost as CART_COST, c.status as CART_STATUS
-												  from carts c
-												  left join cart_details cd on c.id = cd.cartid
-												   order by ' . $sorting
-												);
-		
-		$count = count ( $orders );
-		
-		
+//		$sorting = $column_name . " " . $order;
+//
+//		$orders = DB::connection('mysql')->select('select c.id as CART_ID, c.created_at as CART_CREATION, cd.name as CUSTOMER_NAME,
+//												  cd.address as CUSTOMER_ADDRESS, c.cost as CART_COST, c.status as CART_STATUS
+//												  from carts c
+//												  left join cart_details cd on c.id = cd.cartid
+//												   order by ' . $sorting
+//												);
+
+//
+//		$count = count ( $orders );
+//
+//
+//		$page_items = array ();
+//		$t = 0;
+//		foreach ( $orders as $order ) {
+//			if (($t >= ($page * $rows_per_page) && $t < ($page * $rows_per_page + $rows_per_page))) {
+//				$page_items [] = $order;
+//			}
+//			$t ++;
+//		}
+
+
+        $endpoint = Config::get('settings.get_orders_endpoint');
+        $xml_result = $this->performGetRequest($endpoint);
+
+        $count = count($xml_result->order);
+
 		$page_items = array ();
 		$t = 0;
-		foreach ( $orders as $order ) {
-			if (($t >= ($page * $rows_per_page) && $t < ($page * $rows_per_page + $rows_per_page))) {
-				$page_items [] = $order;
-			}
-			$t ++;
-		}
+		for ( $i = 0, $size = count($xml_result->order); $i < $size; ++$i ) {
+            if (($t >= ($page * $rows_per_page) && $t < ($page * $rows_per_page + $rows_per_page))) {
+                $item = $xml_result->order[$i];
+                $order = new StdClass();
+                $order->CART_ID = (int)$item->id;
+                $order->CART_CREATION = (string)$item->createdAt;
+                $order->CUSTOMER_NAME = isset($item->details->name) ? (string)$item->details->name : '';
+                $order->CUSTOMER_ADDRESS = isset($item->details->address) ? (string)$item->details->address : '';
+                $order->CART_COST = (string)$item->cost;
+                $order->CART_STATUS = (string)$item->status;
+                $page_items [] = $order;
+            }
+            $t++;
+        }
+
 		
 		$this->status ['result'] = 0;
 		$this->status ['orders'] = $page_items;
