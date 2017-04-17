@@ -80,30 +80,6 @@ class CartController extends BaseController {
 		$this->status ['orders'] = $page_items;
 		$this->status ['count'] = $count;
 		return json_encode($this->status);
-		
-// 		$ordersArr = array();
-// 		foreach( $orders as $order ) {
-// 			$ordersArr[$order->CART_ID] = $order;
-// 		}
-		
-// 		foreach( $orders as $order ) {
-			
-// 			$products = DB::connection('mysql')->select('select p.name as PRODUCT_NAME, cp.product_qty as PRODUCT_QTY,
-// 														p.price_usd as PRODUCT_PRICE
-// 														from products p
-// 														left join carts_products cp on cp.product_id = p.id
-// 														where cp.cart_id = ?', 
-// 														array($order->CART_ID)
-// 			);
-			
-// 			$ordersArr[$order->CART_ID]->products = $products;
-			
-// 		}
-		
-// 		$this->orders = $orders;
-// 		$this->products = $ordersArr->products;
-		
-		
 	}
 	
 	public function notify() {

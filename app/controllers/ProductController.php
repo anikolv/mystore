@@ -5,45 +5,66 @@ class ProductController extends BaseController {
 		$page = (int)Request::query('page');
 		$rows_per_page = (int)Request::query('size');
 		$column_name = 'PRO_ID';
-		$order = 'asc';
+		$product = 'asc';
 		
 		
 		if (Request::query('col[0]') != null) {
 			$column_name = 'PRO_ID' ;
-			$order = (Request::query('col[0]') == '0' ? 'asc' : 'desc');
+			$product = (Request::query('col[0]') == '0' ? 'asc' : 'desc');
 		} else if (Request::query('col[1]') != null) {
 			$column_name = 'PRO_NAME';
-			$order = (Request::query('col[1]') == '0' ? 'asc' : 'desc');
+			$product = (Request::query('col[1]') == '0' ? 'asc' : 'desc');
 		} else if (Request::query('col[2]') != null) {
 			$column_name = 'PRO_CATEGORY';
-			$order = (Request::query('col[2]') == '0' ? 'asc' : 'desc');
+			$product = (Request::query('col[2]') == '0' ? 'asc' : 'desc');
 		} else if (Request::query('col[3]') != null) {
 			$column_name = 'PRO_PRICE';
-			$order = (Request::query('col[3]') == '0' ? 'asc' : 'desc');
+			$product = (Request::query('col[3]') == '0' ? 'asc' : 'desc');
 		} else if (Request::query('col[4]') != null) {
 			$column_name = 'PRO_QTY';
-			$order = (Request::query('col[4]') == '0' ? 'asc' : 'desc');
+			$product = (Request::query('col[4]') == '0' ? 'asc' : 'desc');
 		} 
 		
-		$sorting = $column_name . " " . $order;
+		$sorting = $column_name . " " . $product;
 				
-		$products = DB::connection('mysql')->select('select p.id as PRO_ID, p.name as PRO_NAME,
-														  c.name as PRO_CATEGORY, p.price_bgn as PRO_PRICE, p.qty as PRO_QTY
-												  from products p
-												  left join categories c on p.category = c.id
-												   order by ' . $sorting
-												);
-		
-		$count = count ( $products );
-				
-		$page_items = array ();
-		$t = 0;
-		foreach ( $products as $product ) {
-			if (($t >= ($page * $rows_per_page) && $t < ($page * $rows_per_page + $rows_per_page))) {
-				$page_items [] = $product;
-			}
-			$t ++;
-		}
+//		$products = DB::connection('mysql')->select('select p.id as PRO_ID, p.name as PRO_NAME,
+//														  c.name as PRO_CATEGORY, p.price_bgn as PRO_PRICE, p.qty as PRO_QTY
+//												  from products p
+//												  left join categories c on p.category = c.id
+//												   order by ' . $sorting
+//												);
+//
+//		$count = count ( $products );
+//
+//		$page_items = array ();
+//		$t = 0;
+//		foreach ( $products as $product ) {
+//			if (($t >= ($page * $rows_per_page) && $t < ($page * $rows_per_page + $rows_per_page))) {
+//				$page_items [] = $product;
+//			}
+//			$t ++;
+//		}
+
+        $endpoint = Config::get('settings.get_all_products_endpoint');
+        $xml_result = $this->performGetRequest($endpoint);
+
+        $count = count($xml_result->product);
+
+        $page_items = array ();
+        $t = 0;
+        for ( $i = 0, $size = count($xml_result->product); $i < $size; ++$i ) {
+            if (($t >= ($page * $rows_per_page) && $t < ($page * $rows_per_page + $rows_per_page))) {
+                $item = $xml_result->product[$i];
+                $product = new StdClass();
+                $product->PRO_ID = (int)$item->id;
+                $product->PRO_NAME = (string)$item->name;
+                $product->PRO_CATEGORY = (string)$item->category->name;
+                $product->PRO_PRICE = (int)$item->price;
+                $product->PRO_QTY = (int)$item->quantity;
+                $page_items [] = $product;
+            }
+            $t++;
+        }
 		
 		$this->status ['result'] = 0;
 		$this->status ['products'] = $page_items;
@@ -120,6 +141,7 @@ class ProductController extends BaseController {
         for($i = 0, $size = count($xml_result->product); $i < $size; ++$i) {
             $product = $xml_result->product[$i];
             $phone = new StdClass();
+            $phone->id = (int)$product->id;
             $phone->qty = (int)$product->quantity;
             $phone->image = (string)$product->image;
             $phone->description = (string)$product->description;
@@ -157,6 +179,7 @@ class ProductController extends BaseController {
         for($i = 0, $size = count($xml_result->product); $i < $size; ++$i) {
             $product = $xml_result->product[$i];
             $tablet = new StdClass();
+            $tablet->id = (int)$product->id;
             $tablet->qty = (int)$product->quantity;
             $tablet->image = (string)$product->image;
             $tablet->description = (string)$product->description;
@@ -194,6 +217,7 @@ class ProductController extends BaseController {
         for($i = 0, $size = count($xml_result->product); $i < $size; ++$i) {
             $product = $xml_result->product[$i];
             $notebook = new StdClass();
+            $notebook->id = (int)$product->id;
             $notebook->qty = (int)$product->quantity;
             $notebook->image = (string)$product->image;
             $notebook->description = (string)$product->description;
@@ -231,6 +255,7 @@ class ProductController extends BaseController {
         for($i = 0, $size = count($xml_result->product); $i < $size; ++$i) {
             $product = $xml_result->product[$i];
             $tv = new StdClass();
+            $tv->id = (int)$product->id;
             $tv->qty = (int)$product->quantity;
             $tv->image = (string)$product->image;
             $tv->description = (string)$product->description;
